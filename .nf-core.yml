@@ -4,7 +4,7 @@ lint:
     - conf/test_full.config
   files_unchanged:
     - .github/PULL_REQUEST_TEMPLATE.md
-nf_core_version: 3.1.2
+nf_core_version: 3.2.0
 repository_type: pipeline
 template:
   author: "J\xFAlia Mir Pedrol, Laurence Kuhlburger"
