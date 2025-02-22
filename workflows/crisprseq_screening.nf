@@ -138,6 +138,7 @@ workflow CRISPRSEQ_SCREENING {
             BOWTIE2_ALIGN (
             ch_input,
             BOWTIE2_BUILD.out.index,
+            ch_fasta,
             false,
             false
             )
@@ -145,7 +146,7 @@ workflow CRISPRSEQ_SCREENING {
             ch_versions = ch_versions.mix(BOWTIE2_ALIGN.out.versions)
 
 
-            BOWTIE2_ALIGN.out.aligned.map{ meta, bam ->
+            BOWTIE2_ALIGN.out.bam.map{ meta, bam ->
                 [meta, [bam]]
             }.set{ch_input}
         }
