@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Allow csv files in the validation of the `--library` parameter ([#229](https://github.com/nf-core/crisprseq/pull/229)) 
+- Allow csv files in the validation of the `--library` parameter ([#229](https://github.com/nf-core/crisprseq/pull/229))
 
 ### General
 
