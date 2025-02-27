@@ -34,6 +34,7 @@ include { MAGECK_MLE as MAGECK_MLE_MATRIX              } from '../modules/nf-cor
 include { MAGECK_MLE as MAGECK_MLE_DAY0                } from '../modules/nf-core/mageck/mle/main'
 include { BOWTIE2_BUILD                                } from '../modules/nf-core/bowtie2/build/main'
 include { BOWTIE2_ALIGN                                } from '../modules/nf-core/bowtie2/align/main'
+include { GUIDES_TO_FASTA                              } from '../modules/local/guides_to_fasta'
 // Local subworkflows
 include { INITIALISATION_CHANNEL_CREATION_SCREENING    } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
 // Functions
@@ -115,28 +116,35 @@ workflow CRISPRSEQ_SCREENING {
             .set { ch_input }
         }
 
-        if(params.fasta){
-            Channel.of("fasta")
-                .combine(Channel.fromPath(params.fasta))
-                .set{ ch_fasta }
+        if(params.bowtie){
 
-            BOWTIE2_BUILD(ch_fasta)
+            GUIDES_TO_FASTA (
+                INITIALISATION_CHANNEL_CREATION_SCREENING.out.library
+            )
+            ch_versions = ch_versions.mix(GUIDES_TO_FASTA.out.versions)
+
+            GUIDES_TO_FASTA.out.fasta
+                .map { fasta -> [[], fasta] }
+                .set { ch_fasta }
+
+            BOWTIE2_BUILD(
+                ch_fasta
+            )
             ch_versions = ch_versions.mix(BOWTIE2_BUILD.out.versions)
 
             BOWTIE2_ALIGN (
-            ch_input,
-            BOWTIE2_BUILD.out.index,
-            ch_fasta,
-            false,
-            false
+                ch_input,
+                BOWTIE2_BUILD.out.index,
+                ch_fasta,
+                false,
+                false
             )
-
             ch_versions = ch_versions.mix(BOWTIE2_ALIGN.out.versions)
-
 
             BOWTIE2_ALIGN.out.bam.map{ meta, bam ->
                 [meta, [bam]]
             }.set{ch_input}
+
         }
 
         // this is to concatenate everything for mageck count

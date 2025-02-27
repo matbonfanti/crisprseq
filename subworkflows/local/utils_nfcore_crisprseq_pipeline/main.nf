@@ -473,12 +473,12 @@ def validateParametersScreening() {
         warning "mle_design_matrix will only be used for the MAGeCK MLE computations"
     }
 
-    if(params.fasta && params.count_table) {
-        error "Please provide either a fasta file or a count_table"
+    if(params.bowtie && params.count_table) {
+        warning "The count_table file will be used, bypassing the Bowtie alignment step"
     }
 
-    if(params.fasta && !params.library) {
-        error "Please provide a fasta file and the library file"
+    if(!params.count_table && !params.library) {
+        error "Please provide either a precomputed count table or the reference library file"
     }
 
     if(params.day0_label && params.mle_design_matrix) {
