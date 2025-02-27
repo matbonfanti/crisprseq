@@ -1,4 +1,3 @@
-bump_version: null
 lint:
   files_exist:
     # We skip the linting of these files as we have splitted tests between targeted and screening
@@ -6,8 +5,7 @@ lint:
     - conf/test_full.config
   files_unchanged:
     - .github/PULL_REQUEST_TEMPLATE.md
-nf_core_version: 3.0.2
-org_path: null
+nf_core_version: 3.2.0
 repository_type: pipeline
 template:
   author: "J\xFAlia Mir Pedrol, Laurence Kuhlburger"
@@ -17,6 +15,4 @@ template:
   name: crisprseq
   org: nf-core
   outdir: .
-  skip_features: null
   version: 2.3.0
-update: null
