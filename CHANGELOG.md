@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add an acknowlodgement to Hitselection method ([#222]https://github.com/nf-core/crisprseq/pull/222)
+
 ### Fixed
+
+- Improve the method of Hitselection module to run the pipeline faster ([#222]https://github.com/nf-core/crisprseq/pull/222)
+- Fix a bug in the DrugZ module for the removed genes parameter ([#222]https://github.com/nf-core/crisprseq/pull/222)
 
 ### General
 
