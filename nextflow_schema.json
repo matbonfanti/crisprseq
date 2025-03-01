@@ -161,11 +161,11 @@
                 "library": {
                     "type": "string",
                     "format": "file-path",
-                    "pattern": "^\\S+\\.(tsv|txt)$",
+                    "pattern": "^\\S+\\.(tsv|txt|csv)$",
                     "mimetype": "text/tsv",
                     "exists": true,
                     "fa_icon": "far fa-address-book",
-                    "description": "sgRNA and targetting genes, tab separated"
+                    "description": "sgRNA and targetting genes, tab or comma separated"
                 },
                 "five_prime_adapter": {
                     "type": "string",
