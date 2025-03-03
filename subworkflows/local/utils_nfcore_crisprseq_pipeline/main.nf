@@ -473,7 +473,7 @@ def validateParametersScreening() {
     }
 
     if(params.bowtie && params.count_table) {
-        warning "The count_table file will be used, bypassing the Bowtie alignment step"
+        error "the bowtie option cannot be used when a precomputed count table is provided"
     }
 
     if(!params.count_table && !params.library) {
