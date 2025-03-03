@@ -19,6 +19,7 @@ include { MAGECK_FLUTEMLE as MAGECK_FLUTEMLE_CONTRASTS } from '../modules/local/
 include { MAGECK_FLUTEMLE as MAGECK_FLUTEMLE_DAY0      } from '../modules/local/mageck/flutemle'
 include { VENNDIAGRAM                                  } from '../modules/local/venndiagram'
 include { VENNDIAGRAM as VENNDIAGRAM_DRUGZ             } from '../modules/local/venndiagram'
+include { GUIDES_TO_FASTA                              } from '../modules/local/guides_to_fasta/main'
 
 // nf-core modules
 include { FASTQC                                       } from '../modules/nf-core/fastqc/main'
@@ -34,14 +35,15 @@ include { MAGECK_MLE as MAGECK_MLE_MATRIX              } from '../modules/nf-cor
 include { MAGECK_MLE as MAGECK_MLE_DAY0                } from '../modules/nf-core/mageck/mle/main'
 include { BOWTIE2_BUILD                                } from '../modules/nf-core/bowtie2/build/main'
 include { BOWTIE2_ALIGN                                } from '../modules/nf-core/bowtie2/align/main'
-include { GUIDES_TO_FASTA                              } from '../modules/local/guides_to_fasta/main'
+
 // Local subworkflows
 include { INITIALISATION_CHANNEL_CREATION_SCREENING    } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
+
 // Functions
-include { paramsSummaryMap       } from 'plugin/nf-schema'
-include { paramsSummaryMultiqc   } from '../subworkflows/nf-core/utils_nfcore_pipeline'
-include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
-include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
+include { paramsSummaryMap                             } from 'plugin/nf-schema'
+include { paramsSummaryMultiqc                         } from '../subworkflows/nf-core/utils_nfcore_pipeline'
+include { softwareVersionsToYAML                       } from '../subworkflows/nf-core/utils_nfcore_pipeline'
+include { methodsDescriptionText                       } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
 include { validateParametersScreening                  } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
 include { DRUGZ                                        } from '../modules/local/drugz'
 
