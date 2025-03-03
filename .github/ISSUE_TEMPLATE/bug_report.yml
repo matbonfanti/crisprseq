@@ -9,7 +9,6 @@ body:
 
         - [nf-core website: troubleshooting](https://nf-co.re/usage/troubleshooting)
         - [nf-core/crisprseq pipeline documentation](https://nf-co.re/crisprseq/usage)
-
   - type: textarea
     id: description
     attributes:
