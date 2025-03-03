@@ -34,7 +34,7 @@ include { MAGECK_MLE as MAGECK_MLE_MATRIX              } from '../modules/nf-cor
 include { MAGECK_MLE as MAGECK_MLE_DAY0                } from '../modules/nf-core/mageck/mle/main'
 include { BOWTIE2_BUILD                                } from '../modules/nf-core/bowtie2/build/main'
 include { BOWTIE2_ALIGN                                } from '../modules/nf-core/bowtie2/align/main'
-include { GUIDES_TO_FASTA                              } from '../modules/local/guides_to_fasta'
+include { GUIDES_TO_FASTA                              } from '../modules/local/guides_to_fasta/main'
 // Local subworkflows
 include { INITIALISATION_CHANNEL_CREATION_SCREENING    } from '../subworkflows/local/utils_nfcore_crisprseq_pipeline'
 // Functions
@@ -110,7 +110,7 @@ workflow CRISPRSEQ_SCREENING {
 
         if(params.five_prime_adapter || params.three_prime_adapter) {
             ch_cutadapt
-            .map{ meta, fastq, empty  ->
+            .map{ meta, fastq, _empty  ->
                 [meta, fastq]
             }
             .set { ch_input }

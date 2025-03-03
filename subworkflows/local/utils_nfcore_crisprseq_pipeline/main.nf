@@ -132,8 +132,6 @@ workflow PIPELINE_INITIALISATION {
 
 workflow INITIALISATION_CHANNEL_CREATION_SCREENING {
 
-    take:
-
     main:
 
     ch_library = Channel.empty()
