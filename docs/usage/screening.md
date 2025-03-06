@@ -89,7 +89,7 @@ The contrast file must contain the headers "reference" and "treatment". These tw
 | control1          | treatment1            |
 | control1,control2 | treatment1,treatment2 |
 
-A full example can be found [here](https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/full_test/samplesheet_full.csv).
+A full example can be found [here](https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/rra_contrasts.txt).
 
 #### Venn diagram
 
