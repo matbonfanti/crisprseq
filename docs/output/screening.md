@@ -28,6 +28,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io/) and processes d
   - [BAGEL2](#BAGEL2) - Bayes Factor to identify essential genes
   - [MAGeCKFlute](#flutemle) - graphics to visualise MAGECK MLE output
   - [DrugZ](#DrugZ) - Identifying chemogenetic interactions from CRISPR screens
+- [nf-gpt](#nf-gpt) - GPT interpretation of gene essentiality tool analysis (only if specified to run).
 - [Hitselection](#HitSelection) - Identifying tresholds on KO screens on Homo Sapiens
 - [MultiQC](#multiqc) - Aggregate report describing results and QC from the whole pipeline
 - [Pipeline information](#pipeline-information) - Report metrics generated during the workflow execution
@@ -197,6 +198,19 @@ For further reading and documentation see the [cutadapt helper page](https://cut
 - `HitSelection`
   - `*.png` : -logP value vs gene rank plot to determine the rank thresholds
   - `*.txt` : Ranked -logP value and gene symbols table
+
+## nf-gpt
+
+<details markdown="1">
+<summary>Output files</summary>
+
+- `gpt/`
+  - `gpt_*_query.txt`: a text file storing the gpt input functioning as the query.
+  - `gpt_*_output.txt`: a text file storing the gpt output.
+
+</details>
+
+[nf-gpt](https://github.com/nextflow-io/nf-gpt) is a early version Nextflow based experimental plugin. It allows the user to submit prompts to various OpenAI GPT models.
 
 ## MultiQC
 
