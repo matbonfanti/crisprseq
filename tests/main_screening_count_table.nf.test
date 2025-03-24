@@ -1,0 +1,50 @@
+nextflow_pipeline {
+
+    name "Test Workflow main.nf"
+    script "main.nf"
+
+    test("Test screening profile with an input count table") {
+
+        when {
+            params {
+                outdir            = "${outputDir}/results_screening_count_table"
+                analysis          = "screening"
+                count_table       = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/count_table.tsv"
+                mle_design_matrix = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/design_matrix.txt"
+                contrasts         = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/rra_contrasts.txt"
+            }
+        }
+
+        then {
+
+            assertAll(
+
+                //
+                // General assertions
+                //
+
+                // Did it finish successfully?
+                {assert workflow.success},
+
+                //
+                // How many tasks were executed?
+                //
+                {assert workflow.trace.tasks().size() == 3},
+
+                //
+                // Check if files were produced
+                //
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/mle/null_vs_null/design_matrix.gene_summary.txt").exists()},
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/mle/null_vs_null/design_matrix.sgrna_summary.txt").exists()},
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/FluteMLE/MAGeCKFlute_treatment/Enrichment").exists()},
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/FluteMLE/MAGeCKFlute_treatment/PathwayView").exists()},
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/FluteMLE/MAGeCKFlute_treatment/QC").exists()},
+                {assert new File( "${outputDir}/results_screening_count_table/mageck/FluteMLE/MAGeCKFlute_treatment/Selection").exists()}
+
+            ) // end of assertAll()
+
+        }
+
+    }
+
+}
