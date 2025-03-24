@@ -533,11 +533,10 @@
             "$ref": "#/$defs/institutional_config_options"
         },
         {
-
-            "$ref": "#/definitions/generic_options"
+            "$ref": "#/$defs/generic_options"
         },
         {
-            "$ref": "#/definitions/nf_gpt_parameters"
+            "$ref": "#/$defs/nf_gpt_parameters"
         },
         {
             "$ref": "#/$defs/generic_options"
