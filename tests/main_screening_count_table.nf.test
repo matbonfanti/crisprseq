@@ -3,7 +3,7 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "main.nf"
 
-    test("Test screening profile with an input count table") {
+    test("Test screening with an input count table") {
 
         when {
             params {

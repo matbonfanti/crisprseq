@@ -1,0 +1,23 @@
+nextflow_pipeline {
+
+    name "Test Workflow main.nf"
+    script "main.nf"
+
+    test("Test screening with paired-end") {
+
+        when {
+            params {
+                outdir            = "${outputDir}/results_screening_paired"
+                analysis          = "screening"
+                input             = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/samplesheet_test_paired.csv"
+                library           = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/brunello_target_sequence.txt"
+            }
+        }
+
+        then {
+            assert workflow.success
+        }
+
+    }
+
+}

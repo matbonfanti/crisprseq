@@ -1,0 +1,31 @@
+nextflow_pipeline {
+
+    name "Test Workflow main.nf"
+    script "main.nf"
+
+    test("Test screening") {
+
+        when {
+            params {
+                outdir                     = "${outputDir}/results_screening"
+                input                      = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/samplesheet_test.csv"
+                analysis                   = "screening"
+                crisprcleanr               = "Brunello_Library"
+                library                    = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/brunello_target_sequence.txt"
+                contrasts                  = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/rra_contrasts.txt"
+                rra                        = true
+                mle                        = true
+                hitselection               = true
+                hit_selection_iteration_nb = 50
+                drugz                      = true
+                bagel2                     = true
+            }
+        }
+
+        then {
+            assert workflow.success
+        }
+
+    }
+
+}

@@ -1,0 +1,24 @@
+nextflow_pipeline {
+
+    name "Test Workflow main.nf"
+    script "main.nf"
+
+    test("Test targeted") {
+
+        when {
+            params {
+                outdir          = "${outputDir}/results_targeted"
+                input           = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata-edition/samplesheet_test.csv"
+                analysis        = 'targeted'
+                aligner         = 'minimap2'
+                overrepresented = true
+            }
+        }
+
+        then {
+            assert workflow.success
+        }
+
+    }
+
+}
