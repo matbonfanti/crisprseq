@@ -48,7 +48,7 @@ MAGeCK count which is the main alignment software used is normally able to autom
 
 ### bowtie2
 
-The MAGeCK count module supports bam files, which allows you to align with bowtie2 first. If you wish to do so (for instance to allow mapping reads to the library with mismatches or to set the aligner with specific flags) you can provide a fasta file with `--fasta` encoding the library. Currently, you also still need to provide the tab-separated library file with `--library`.
+The MAGeCK count module supports bam files, which allows you to align with bowtie2 first. If you wish to do so (for instance to allow mapping reads to the library with mismatches or to set the aligner with specific flags) you can use the flag `--bowtie`. The reference FASTA for the mapping is created automatically from the library file provided with `--library`.
 
 ### library
 
@@ -89,7 +89,7 @@ The contrast file must contain the headers "reference" and "treatment". These tw
 | control1          | treatment1            |
 | control1,control2 | treatment1,treatment2 |
 
-A full example can be found [here](https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/full_test/samplesheet_full.csv).
+A full example can be found [here](https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/rra_contrasts.txt).
 
 #### Venn diagram
 
