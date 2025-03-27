@@ -171,9 +171,19 @@
                     "type": "string",
                     "description": "Sequencing adapter sequence to use for trimming on the 5' end"
                 },
+                "extra_cutadapt_five_prime_args": {
+                    "type": "string",
+                    "description": "Extra arguments to pass to the cutadapt command for trimming on the 5' end.",
+                    "fa_icon": "fas fa-plus"
+                },
                 "three_prime_adapter": {
                     "type": "string",
                     "description": "Sequencing adapter sequence to use for trimming on the 3' end"
+                },
+                "extra_cutadapt_three_prime_args": {
+                    "description": "Extra arguments to pass to the cutadapt command for trimming on the 3' end.",
+                    "type": "string",
+                    "fa_icon": "fas fa-plus"
                 },
                 "bowtie": {
                     "type": "boolean",
