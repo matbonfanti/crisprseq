@@ -1,7 +1,8 @@
 nextflow_pipeline {
 
     name "Test Workflow main.nf"
-    script "main.nf"
+    script "../main.nf"
+    tag "pipeline"
 
     test("Test targeted full") {
 
