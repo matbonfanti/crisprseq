@@ -8,7 +8,7 @@ nextflow_pipeline {
 
         when {
             params {
-                outdir          = "${outputDir}/results_targeted_full"
+                outdir          = "${outputDir}"
                 input           = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata-edition/samplesheet_test_full.csv"
                 analysis        = 'targeted'
                 aligner         = 'minimap2'

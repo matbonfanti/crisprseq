@@ -8,7 +8,7 @@ nextflow_pipeline {
 
         when {
             params {
-                outdir                     = "${outputDir}/results_screening"
+                outdir                     = "${outputDir}"
                 input                      = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/samplesheet_test.csv"
                 analysis                   = "screening"
                 crisprcleanr               = "Brunello_Library"

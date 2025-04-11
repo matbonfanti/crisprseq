@@ -8,7 +8,7 @@ nextflow_pipeline {
 
         when {
             params {
-                outdir            = "${outputDir}/results_screening_count_table"
+                outdir            = "${outputDir}"
                 analysis          = "screening"
                 count_table       = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/count_table.tsv"
                 mle_design_matrix = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/design_matrix.txt"

@@ -8,7 +8,7 @@ nextflow_pipeline {
 
         when {
             params {
-                outdir            = "${outputDir}/results_screening_full"
+                outdir            = "${outputDir}"
                 analysis          = "screening"
                 input             = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/full_test/samplesheet_full.csv"
                 mle_design_matrix = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/full_test/drugA_drugB_vs_treatment.txt"
