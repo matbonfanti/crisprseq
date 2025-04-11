@@ -2,5 +2,22 @@
 {%- if multiqc %}
 multiqc/multiqc_plots/{svg,pdf,png}/*.{svg,pdf,png}
 multiqc/multiqc_report.html
+multiqc/multiqc_data/multiqc.log
+multiqc/multiqc_data/multiqc_data.json
+multiqc/multiqc_data/multiqc_sources.txt
+multiqc/multiqc_data/fastqc_top_overrepresented_sequences_table.txt
 {%- endif %}
 pipeline_info/*.{html,json,txt,yml}
+preprocessing/fastqc/*_fastqc.zip
+hitselection/mle/*_mle_gene_conversion.txt
+mageck/FluteMLE/MAGeCKFlute_*/QC/MAView_*.png
+mageck/FluteMLE/MAGeCKFlute_*/Selection/*
+mageck/*_rank.png
+mageck/count/*.log
+mageck/mle/*/*.gene_summary.txt
+mageck/rra/*.log
+venndiagram/*/*.png
+cigar/*.html
+plots/*.html
+preprocessing/adapters/overrepresented.fasta
+preprocessing/cutadapt/*.log
