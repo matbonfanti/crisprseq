@@ -5,7 +5,6 @@ multiqc/multiqc_data/multiqc.log
 multiqc/multiqc_data/multiqc_data.json
 multiqc/multiqc_data/multiqc_sources.txt
 multiqc/multiqc_data/fastqc_top_overrepresented_sequences_table.txt
-{%- endif %}
 pipeline_info/*.{html,json,txt,yml}
 preprocessing/fastqc/*_fastqc.zip
 hitselection/mle/*_mle_gene_conversion.txt
