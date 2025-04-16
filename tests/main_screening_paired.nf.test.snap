@@ -115,15 +115,15 @@
                 "multiqc_fastqc.txt:md5,33b2aafaf6c979c5eb11d56cb1ccea52",
                 "multiqc_general_stats.txt:md5,a49f2430cf06927de205af38f5d601ac",
                 "multiqc_mageck_count.txt:md5,d83bf4a2e0ea5c3ab0d0655fc37b3bac",
-                "multiqc_software_versions.txt:md5,c7f0a04320974ad2212196a814f36a4d",
-                "SRR23101364_1_fastqc.html:md5,facc1c208c844512f83e138810c11729",
-                "SRR23101364_2_fastqc.html:md5,2064b007caa0151c7a05cf5dd3e04c6d"
+                "multiqc_software_versions.txt:md5,6a1488ea4c393328c4e23361b0280457",
+                "SRR23101364_1_fastqc.html:md5,9805899e51eb906b19056c8da4b9c560",
+                "SRR23101364_2_fastqc.html:md5,16c3d1cd637d72a9be09f81288750af6"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.5"
+            "nextflow": "24.10.4"
         },
-        "timestamp": "2025-04-11T14:58:41.755614417"
+        "timestamp": "2025-04-16T15:35:06.85130362"
     }
 }

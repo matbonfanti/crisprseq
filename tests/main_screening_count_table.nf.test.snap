@@ -249,13 +249,13 @@
                 "treatment_processed_data.txt:md5,c89317b41b62592b032d98e5b3adc160",
                 "design_matrix.sgrna_summary.txt:md5,2d9c7b762ca4086f6d84a869f0961f3b",
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f",
-                "multiqc_software_versions.txt:md5,4811f54f43ededa6d41ee7b954e4cfcc"
+                "multiqc_software_versions.txt:md5,09bc0a2df71c99c5a875b35282a2eb9b"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.5"
+            "nextflow": "24.10.4"
         },
-        "timestamp": "2025-04-11T15:08:23.399827651"
+        "timestamp": "2025-04-16T15:32:46.681555589"
     }
 }
