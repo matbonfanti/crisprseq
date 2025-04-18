@@ -248,8 +248,7 @@
                 "treatment_omitessential_data.txt:md5,435cd7192ba208c8a4932f65342a1e79",
                 "treatment_processed_data.txt:md5,c89317b41b62592b032d98e5b3adc160",
                 "design_matrix.sgrna_summary.txt:md5,2d9c7b762ca4086f6d84a869f0961f3b",
-                "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f",
-                "multiqc_software_versions.txt:md5,09bc0a2df71c99c5a875b35282a2eb9b"
+                "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f"
             ]
         ],
         "meta": {

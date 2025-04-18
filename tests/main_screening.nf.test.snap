@@ -249,18 +249,18 @@
                 "control_vs_treatment.bf:md5,644b8deef4b2f70f61cda45583bef2be",
                 "control_vs_treatment.foldchange:md5,fcd5971d03db4e6f14a57ee0c683313c",
                 "control_vs_treatment.normed_readcount:md5,0140634f183117e27bce8ee2b025032b",
-                "PR_plot_control_vs_treatment.png:md5,38f3bf87f2e31b2db1aa1f2ca150ee44",
+                "PR_plot_control_vs_treatment.png:md5,d009d3200c6e21c9be4f06cf062f862b",
                 "barplot_control_vs_treatment.png:md5,c888d1d4b097d62493a118ebb9a70974",
-                "control_vs_treatment.tsv:md5,3a4201a1922f5b027e13bcbdea678dca",
+                "control_vs_treatment.tsv:md5,770040a098d9ca0f5b4d3ea9829dadc7",
                 "crisprcleanr_correctedCounts.RData:md5,e593a3c361e2bfa12c704647c473864f",
                 "crisprcleanr_norm_table.tsv:md5,09555a6bce27cff61e803ceca5d751d3",
                 "control_vs_treatment.txt:md5,b0176dd28df9d555c023e0245f53f5c7",
-                "control_vs_treatment.foldchange:md5,8fba1be5b5a123e38fd8cd3ac8978910",
-                "control_vs_treatment_drugz_output.txt:md5,0c57f74eaa7dbbdf8cef456848844842",
-                "control_vs_treatment_bagel2_gene_conversion.txt:md5,96e9091f8c5916ebeef43776772bece4",
+                "control_vs_treatment.foldchange:md5,4a6828f552898354f83ca4cd08b8ee08",
+                "control_vs_treatment_drugz_output.txt:md5,3d90e1c5fe50a9bfd3d1844c0b836eb8",
+                "control_vs_treatment_bagel2_gene_conversion.txt:md5,de82e8483579f831d131b01c8d912870",
                 "control_vs_treatment_bagel2_hitselection.tsv:md5,ff0aa7c3e1306d170cb7f10d7380f2c6",
                 "control_vs_treatment_bagel2_logpvalue_distribution.png:md5,00d80cfe398be652e69b6dd30e571b80",
-                "control_vs_treatment_drugz_gene_conversion.txt:md5,e25697d3b24e1d5f47c26047775ee067",
+                "control_vs_treatment_drugz_gene_conversion.txt:md5,842d8bee822b2a185d156932e0844a01",
                 "control_vs_treatment_drugz_hitselection.tsv:md5,09e7d21524a84840ede93bb3519f08f8",
                 "control_vs_treatment_drugz_logpvalue_distribution.png:md5,f0dff994f46912df3a49e34369b443e2",
                 "control_vs_treatment_mle_hitselection.tsv:md5,45c447e8438496a38835e6e0d6a215f0",
@@ -318,16 +318,13 @@
                 "multiqc_fastqc.txt:md5,6e20912a1204abf386bccffed398d771",
                 "multiqc_general_stats.txt:md5,70b343b1d228d9306030913daad9a6fe",
                 "multiqc_mageck_count.txt:md5,f57eb7523ba713732316707fabde9d81",
-                "multiqc_software_versions.txt:md5,353a6657a7885f13b327e0c6b85b654b",
-                "SRR8983579_fastqc.html:md5,7e8b6dce474c944f63b062be7f613e51",
-                "SRR8983580_fastqc.html:md5,1a524ad7eb0a93f4c1306c7ac7b709da",
                 "control_vs_treatment.fdr_BAGEL2_common_genes_mle.txt:md5,401b30e3b8b5d629635a5c613cdb7919"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nextflow": "24.04.2"
         },
-        "timestamp": "2025-04-16T15:26:20.828728138"
+        "timestamp": "2025-04-18T13:56:32.701298327"
     }
 }

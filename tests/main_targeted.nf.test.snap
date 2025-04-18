@@ -304,12 +304,12 @@
                 "chr6_edits_classified.csv:md5,5de83c21e57d2641ed51cd6e0f807976",
                 "hCas9-AAVS1-a_edits_classified.csv:md5,5765c9c42065820f947bb571458711d0",
                 "hCas9-TRAC-a_edits_classified.csv:md5,07aaadbcb6210bdea8ccd8b6eff988de",
-                "chr6.bam:md5,1dd0efb6f4c2fcd188c6af8439b860f4",
-                "chr6.bam.bai:md5,ee329b93791a1a196b232ce856009df2",
-                "hCas9-AAVS1-a.bam:md5,088df3d56b03a35e886258bb6107aec8",
+                "chr6.bam:md5,17f99868d17fc4195b5b25593f6174a4",
+                "chr6.bam.bai:md5,1563d893aada5f967765663c8e3d5f9e",
+                "hCas9-AAVS1-a.bam:md5,f11622ae70beb40010b22a083f1ecc76",
                 "hCas9-AAVS1-a.bam.bai:md5,1572a5f78e6217f8461584e6d6495a01",
-                "hCas9-TRAC-a.bam:md5,119c3b86b61e70a7c603469041ee7186",
-                "hCas9-TRAC-a.bam.bai:md5,dbfa594b9a57a2c4bd20153204bf74d7",
+                "hCas9-TRAC-a.bam:md5,197702b78ee7105b1c8c0adcdcdac39d",
+                "hCas9-TRAC-a.bam.bai:md5,c876ef982797ea22e3b09f6b6cf4b55c",
                 "cutadapt_filtered_reads_plot.txt:md5,5b6e525c9c4db6299945fdb932451063",
                 "cutadapt_trimmed_sequences_plot_5_Counts.txt:md5,0c6bab1733f566ee643b7b7325ef6ab6",
                 "cutadapt_trimmed_sequences_plot_5_Obs_Exp.txt:md5,432bea989f8f54719dd60a5b61e5c5ee",
@@ -327,11 +327,10 @@
                 "multiqc_citations.txt:md5,78cc0f4521878c6c4beaf54ad968e411",
                 "multiqc_cutadapt.txt:md5,6bf68b90cb2b3985add256ef7830ded5",
                 "multiqc_edition_bargraph.txt:md5,eaa80086028ee45cc2f6a8f9b9bcd15d",
-                "multiqc_fastqc.txt:md5,47cc5c1d22a95caa05f70a1be4a3803c",
+                "multiqc_fastqc.txt:md5,51062dabcc529163445ff086caf36c31",
                 "multiqc_general_stats.txt:md5,84883ee128ab99f8082f67310ec15bfb",
                 "multiqc_indelqc_bargraph.txt:md5,54edd1ae6dda14b6e1fbdc7b951b21c0",
                 "multiqc_read_processing.txt:md5,630d8f7de5b4ef4e40e781ba4105c8ba",
-                "multiqc_software_versions.txt:md5,0ab62515dcc763c2143f224393a26930",
                 "chr6_delAlleles_plot.png:md5,8e543c13d43a0904164eeb7c4fb21719",
                 "chr6_subs-perc_plot.png:md5,96e0c2ba9fc9c446e5e5bd8542a0e3ad",
                 "chr6_subs-perc_plot_LOGO.png:md5,f44a99bf9c2ed1cd5627e40837c63c42",
@@ -347,9 +346,6 @@
                 "chr6.trim.fastq.gz:md5,76dbcb79bd3e2e18c7efa44d182fc9a8",
                 "hCas9-AAVS1-a.trim.fastq.gz:md5,5971dfce74376a19ba3d4438304c2d28",
                 "hCas9-TRAC-a.trim.fastq.gz:md5,e3047e4c3062ba1df38eaea83216d9c1",
-                "chr6_fastqc.html:md5,40fcbcc09f7078a91c56884cc3588a71",
-                "hCas9-AAVS1-a_fastqc.html:md5,4fbefafe751bb13c6c150cd5873c0554",
-                "hCas9-TRAC-a_fastqc.html:md5,0f369fc9e70052153a2b31fb067c2679",
                 "hCas9-AAVS1-a.assembled.fastq.gz:md5,61c1caed2a4956410038bf27562e0efe",
                 "hCas9-AAVS1-a.discarded.fastq.gz:md5,d41d8cd98f00b204e9800998ecf8427e",
                 "hCas9-AAVS1-a.unassembled.forward.fastq.gz:md5,d20cc636377d5769254b5d7993dab9d3",
@@ -362,7 +358,7 @@
                 "hCas9-AAVS1-a.seqtk-seq.fastq.gz:md5,66df17686a9700f51827e640ecfc8711",
                 "hCas9-TRAC-a.seqtk-seq.fastq.gz:md5,af1cfc40cc4bd9ffad3a151ad1b57162",
                 "chr6_NewReference.fasta:md5,37a5dcbff4e0e305cd0ef723c33623e6",
-                "chr6_template-align.bam:md5,0d7ba386d94dfe0e6bebcd4647615ffb",
+                "chr6_template-align.bam:md5,c89ced9af15cd82ec2f2f03fd918ab45",
                 "chr6_alignment_summary.csv:md5,0aa30af2bfe39e9d980948afc6d14785",
                 "hCas9-AAVS1-a_alignment_summary.csv:md5,48679a137dd512ff180a8b4723a28b1b",
                 "hCas9-TRAC-a_alignment_summary.csv:md5,59c695e2906b6540cb8d377ec6467027"
@@ -370,8 +366,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.10.4"
+            "nextflow": "24.04.2"
         },
-        "timestamp": "2025-04-16T15:46:05.081930933"
+        "timestamp": "2025-04-18T14:09:46.196093407"
     }
 }

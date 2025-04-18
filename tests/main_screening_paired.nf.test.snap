@@ -114,10 +114,7 @@
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f",
                 "multiqc_fastqc.txt:md5,33b2aafaf6c979c5eb11d56cb1ccea52",
                 "multiqc_general_stats.txt:md5,a49f2430cf06927de205af38f5d601ac",
-                "multiqc_mageck_count.txt:md5,d83bf4a2e0ea5c3ab0d0655fc37b3bac",
-                "multiqc_software_versions.txt:md5,6a1488ea4c393328c4e23361b0280457",
-                "SRR23101364_1_fastqc.html:md5,9805899e51eb906b19056c8da4b9c560",
-                "SRR23101364_2_fastqc.html:md5,16c3d1cd637d72a9be09f81288750af6"
+                "multiqc_mageck_count.txt:md5,d83bf4a2e0ea5c3ab0d0655fc37b3bac"
             ]
         ],
         "meta": {
