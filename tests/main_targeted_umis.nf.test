@@ -13,7 +13,7 @@ nextflow_pipeline {
                 analysis       = 'targeted'
                 aligner        = 'minimap2'
                 umi_clustering = true
-
+                overrepresented = false
             }
         }
 
