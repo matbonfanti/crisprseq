@@ -110,14 +110,6 @@ runs:
           echo "| ⚠️ | No test results found | ${{ inputs.profile }} | ${{ inputs.shard }}/${{ inputs.total_shards }} |" >> $GITHUB_STEP_SUMMARY
         fi
 
-    - name: Upload linting log file artifact
-      if: ${{ always() }}
-      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
-      with:
-        name: nextflow-log
-        path: |
-          ${GITHUB_WORKSPACE}/.nf-test/tests/**/meta/nextflow.log
-
     - name: Clean up
       if: always()
       shell: bash
