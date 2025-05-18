@@ -7,7 +7,9 @@ with open("${data}", "r") as file:
 
     # Ensure target_index is within the bounds of available columns
     if int("${index}") >= len(header) or int("${index}") < 0:
-        raise ValueError(f"Error: The specified column index {int("${index}")} is out of range!")
+        raise ValueError(
+            f"Error: The specified column index {int("${index}")} is out of range!"
+        )
 
     # Initiate list to store gene IDs with corresponding data values
     data = []
@@ -30,7 +32,7 @@ with open("${data}", "r") as file:
         raise ValueError("Error: Please provide either 'low' or 'high' as mode.")
 
     # Extract num_genes many top genes
-    top_gene_ids = [gene_id for gene_id, value in sorted_data[:int("${count}")]]
+    top_gene_ids = [gene_id for gene_id, value in sorted_data[: int("${count}")]]
 
     # Write everything into an output file
     with open(f"gpt_{"${source}"}_query.txt", "w") as query_file:
