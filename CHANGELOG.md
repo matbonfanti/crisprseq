@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add an acknowlodgement to Hitselection method ([#222]https://github.com/nf-core/crisprseq/pull/222)
+- Added parameters specifying additional arguments for the cutadapt command line ([#237](https://github.com/nf-core/crisprseq/pull/237))
 
 ### Fixed
 
