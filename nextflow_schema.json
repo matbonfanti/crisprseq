@@ -268,7 +268,7 @@
                 },
                 "gpt_interpretation": {
                     "type": "string",
-                    "description": "Determines whether or not to run nf-gpt plugin"
+                    "description": "Tools to interpret using the nf-gpt plugin. Tools must be provided separated by comans. Possible options are: mle, rra, bagel2 and drugz"
                 },
                 "hitselection": {
                     "type": "boolean",
@@ -473,7 +473,6 @@
             "title": "nf_gpt_parameters",
             "type": "object",
             "description": "Contains parameters to control nf-gpt plugin calling.",
-            "default": "",
             "properties": {
                 "gpt_drugz_gene_amount": {
                     "type": "integer",
@@ -483,7 +482,7 @@
                 "gpt_drugz_question": {
                     "type": "string",
                     "default": "Which of the following genes have historically shown records of enhancing drug activitys upon CRISPR knockout? For each positive gene write a paragraph explaining the findings in detail.",
-                    "description": "Question parsed with drugZ data to gpt."
+                    "description": "Prompt to parse drugZ data with nf-gpt."
                 },
                 "gpt_mle_gene_amount": {
                     "type": "integer",
@@ -493,7 +492,7 @@
                 "gpt_mle_question": {
                     "type": "string",
                     "default": "Which of the following genes have historically shown significance in the context of a CRISPR knockout? For each positive gene write a paragraph explaining the findings in detail.",
-                    "description": "Question parsed with MAGeCK mle data to gpt."
+                    "description": "Prompt to parse MAGeCK MLE data with nf-gpt."
                 },
                 "gpt_bagel2_gene_amount": {
                     "type": "integer",
@@ -502,7 +501,8 @@
                 },
                 "gpt_bagel2_question": {
                     "type": "string",
-                    "default": "Which of the following genes have historically shown significance in the context of a CRISPR knockout? For each positive gene write a paragraph explaining the findings in detail."
+                    "default": "Which of the following genes have historically shown significance in the context of a CRISPR knockout? For each positive gene write a paragraph explaining the findings in detail.",
+                    "description": "Prompt to parse bagel2 data with nf-gpt."
                 },
                 "gpt_rra_gene_amount": {
                     "type": "integer",
@@ -512,7 +512,7 @@
                 "gpt_rra_question": {
                     "type": "string",
                     "default": "Which of the following genes have historically shown significance in the context of a CRISPR knockout? For each positive gene write a paragraph explaining the findings in detail.",
-                    "description": "Question parsed with rra data to gpt."
+                    "description": "Prompt to parse MAGeCK RRA data with nf-gpt."
                 }
             }
         }
@@ -541,9 +541,6 @@
         },
         {
             "$ref": "#/$defs/institutional_config_options"
-        },
-        {
-            "$ref": "#/$defs/generic_options"
         },
         {
             "$ref": "#/$defs/nf_gpt_parameters"

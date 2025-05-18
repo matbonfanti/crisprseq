@@ -210,7 +210,7 @@ For further reading and documentation see the [cutadapt helper page](https://cut
 
 </details>
 
-[nf-gpt](https://github.com/nextflow-io/nf-gpt) is a early version Nextflow based experimental plugin. It allows the user to submit prompts to various OpenAI GPT models.
+[nf-gpt](https://github.com/nextflow-io/nf-gpt) is a Nextflow experimental plugin. It allows the user to submit prompts to various OpenAI GPT models.
 
 ## MultiQC
 
