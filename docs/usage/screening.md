@@ -161,7 +161,11 @@ To run Hitselection, you can specify '--hitselection' and it will automatically 
 ### Running nf-gpt
 
 Data from screening analysis can be interpreted using [nf-gpt](https://github.com/nextflow-io/nf-gpt). Currently MAGeCK MLE, MAGeCK RRA, BAGEL2 and drugZ are supported.
-To run this you can use `--gpt_interpretation` followed by the tools, whose data you want to interprete. For example `--gpt_interpretation mle,rra,bagel2,drugz` runs the interpretation on all 4 tools. You can also run less, or single tools as well. Since the plugin works through the OpenAI api, you will have to make sure that there is a valid api key in your local environment. For this use `nextflow secrets set OPENAI_API_KEY <your api key>` in your project environment prior to running the pipeline. This will make sure the api key is handled as a [Nextflow secret](https://www.nextflow.io/docs/latest/secrets.html) and is not written into any reports.
+To run this you can use `--gpt_interpretation` followed by the tools, whose data you want to interprete. 
+For example `--gpt_interpretation mle,rra,bagel2,drugz` runs the interpretation on all 4 tools. You can also run less, or single tools as well. 
+
+Since the plugin works through the OpenAI api, you will have to make sure that there is a valid api key in your local environment. 
+For this use `nextflow secrets set OPENAI_API_KEY <your api key>` in your project environment prior to running the pipeline. This will make sure the api key is handled as a [Nextflow secret](https://www.nextflow.io/docs/latest/secrets.html) and is not written into any reports.
 You can view an example output of nf-gpt, generated using the pipelines test data, [here](../files/gpt_drugz_output.txt "Click to download").
 
 > [!WARNING]
