@@ -127,6 +127,7 @@ workflow CRISPRSEQ_SCREENING {
 
             GUIDES_TO_FASTA.out.fasta
                 .map { fasta -> [[], fasta] }
+                .collect()
                 .set { ch_fasta }
 
             BOWTIE2_BUILD(
@@ -134,9 +135,13 @@ workflow CRISPRSEQ_SCREENING {
             )
             ch_versions = ch_versions.mix(BOWTIE2_BUILD.out.versions)
 
+            BOWTIE2_BUILD.out.index
+                .collect()
+                .set { ch_fasta_index }
+
             BOWTIE2_ALIGN (
                 ch_input,
-                BOWTIE2_BUILD.out.index,
+                ch_fasta_index,
                 ch_fasta,
                 false,
                 false
