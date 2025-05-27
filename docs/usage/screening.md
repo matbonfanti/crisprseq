@@ -158,6 +158,25 @@ To run Hitselection, you can specify '--hitselection' and it will automatically 
 
 > [!WARNING] Please be advised that the Hitselection algorithm is time intensive and will make the pipeline run longer
 
+### Running nf-gpt
+
+Data from screening analysis can be interpreted using [nf-gpt](https://github.com/nextflow-io/nf-gpt). Currently MAGeCK MLE, MAGeCK RRA, BAGEL2 and drugZ are supported.
+To run this you can use `--gpt_interpretation` followed by the tools, whose data you want to interprete.
+For example `--gpt_interpretation mle,rra,bagel2,drugz` runs the interpretation on all 4 tools. You can also run less, or single tools as well.
+
+Since the plugin works through the OpenAI api, you will have to make sure that there is a valid api key in your local environment.
+For this use `nextflow secrets set OPENAI_API_KEY <your api key>` in your project environment prior to running the pipeline. This will make sure the api key is handled as a [Nextflow secret](https://www.nextflow.io/docs/latest/secrets.html) and is not written into any reports.
+You can view an example output of nf-gpt, generated using the pipelines test data, [here](../files/gpt_drugz_output.txt "Click to download").
+
+> [!WARNING]
+> In order for `nf-gpt` to run successfully, you will also have to run the corresponding tool. Simply specifying the tool with the `gpt_interpretation` parameter will **not** run the tool in the pipeline. Therefore, make sure to also run the tool using `--mle`, `--rra`, `--bagel2` and/or `--drugz`.
+
+> [!WARNING]
+> Be adviced that gpt produced text data has no guarantee to be correct. There have been various instances where LLM outputs have been proven to be the result of hallucination. Running `nf-gpt` does **not** guarantee scientifically correct results and is an experimental tool.
+
+> [!WARNING]
+> As of now, the gpt results are **not** reproducible. This is subject to change with future plugin versions!
+
 Note that the pipeline will create the following files in your working directory:
 
 ```bash

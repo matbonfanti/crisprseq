@@ -135,6 +135,7 @@ We thank the following people for their extensive assistance in the development 
 - [@ggabernet](https://github.com/ggabernet)
 - [@jianhong](https://github.com/jianhong)
 - [@joannakraw](https://github.com/joannakraw)
+- [@LeonHornich](https://github.com/LeonHornich)
 - [@mashehu](https://github.com/mashehu)
 - [@matbonfanti](https://github.com/matbonfanti)
 - [@medmaca](https://github.com/medmaca)
