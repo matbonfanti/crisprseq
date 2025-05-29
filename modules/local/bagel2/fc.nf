@@ -1,5 +1,5 @@
 process BAGEL2_FC {
-    tag "${meta.treatment}_${meta.reference}"
+    tag "${meta.id}"
     label 'process_single'
 
     conda "python=3.11.4 pandas=2.0.3 numpy=1.25.1 scikit-learn=1.3.0 click=8.1.6"
@@ -23,7 +23,7 @@ process BAGEL2_FC {
     def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    BAGEL.py fc -i $count_table -o ${meta.treatment}_vs_${meta.reference} -c $meta.reference $args
+    BAGEL.py fc -i $count_table -o ${meta.id} -c $meta.reference $args
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         python: \$(python --version | sed 's/Python //g')

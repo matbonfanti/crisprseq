@@ -1,5 +1,5 @@
 process VENNDIAGRAM {
-    tag "${meta.treatment}_vs_${meta.reference}"
+    tag "${meta.id}"
     label 'process_low'
 
 
@@ -19,8 +19,7 @@ process VENNDIAGRAM {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.treatment}_vs_${meta.reference}"
-
+    def prefix = task.ext.prefix ?: "${meta.id}"
     """
     #!/usr/bin/env Rscript
 

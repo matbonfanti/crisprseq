@@ -1,5 +1,5 @@
 process HITSELECTION {
-    tag "${meta.treatment}_${meta.reference}"
+    tag "${meta.id}"
     label 'process_high'
 
     conda "r-base=4.4.1 r-igraph=2.0.3 r-dplyr=1.1.4 r-tidyr=1.3.1 r-readr=2.1.5 r-ggplot2=3.5.1"
@@ -151,13 +151,13 @@ process HITSELECTION {
 
     # Save the updated screen data with HGNC and Ensembl IDs to a file
     if(length(beta_col) >= 1) {
-        filename <- '${meta.treatment}_vs_${meta.reference}_mle'
+        filename <- '${meta.prefix}_mle'
     } else if(length(bf_col) >= 1) {
-        filename <- '${meta.treatment}_vs_${meta.reference}_bagel2'
+        filename <- '${meta.prefix}_bagel2'
     } else if(length(rra_col) >= 1) {  # New else if condition
-    filename <- '${meta.treatment}_vs_${meta.reference}_rra'
+    filename <- '${meta.prefix}_rra'
     } else {
-        filename <- '${meta.treatment}_vs_${meta.reference}_drugz'
+        filename <- '${meta.prefix}_drugz'
     }
 
     write_delim(as.data.frame(screen), paste0(filename, '_gene_conversion.txt'), delim = '\t')
@@ -247,8 +247,8 @@ process HITSELECTION {
     def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    touch "${meta.treatment}_vs_${meta.reference}_hitselection.tsv"
-    touch "${meta.treatment}_vs_${meta.reference}_output_converted.txt"
+    touch "${meta.prefix}_hitselection.tsv"
+    touch "${meta.prefix}_output_converted.txt"
 
     version_file_path <- "versions.yml"
     version_igraph <- paste(unlist(packageVersion("igraph")), collapse = ".")

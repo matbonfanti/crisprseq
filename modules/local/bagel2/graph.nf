@@ -1,5 +1,5 @@
 process BAGEL2_GRAPH {
-    tag "${meta.treatment}_${meta.reference}"
+    tag "${meta.id}"
     label 'process_single'
 
     conda "python=3.11.4 pandas=2.0.3 numpy=1.25.1 scikit-learn=1.3.0 click=8.1.6 matplotlib=3.7.2"
@@ -19,7 +19,7 @@ process BAGEL2_GRAPH {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.treatment}_${meta.reference}"
+    def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
     #!/usr/bin/env python3
@@ -42,7 +42,7 @@ process BAGEL2_GRAPH {
     plt.title('Precision-Recall Plot')
 
     # Save the plot to a PNG file
-    file_name = 'PR_plot_{}_vs_{}.png'.format('${meta.treatment}', '${meta.reference}')
+    file_name = 'PR_plot_{}.png'.format('${meta.id}')
 
     plt.savefig(file_name)
 
@@ -53,7 +53,7 @@ process BAGEL2_GRAPH {
     plt.xlabel('Bayes Factor')
     plt.ylabel('Number of Genes')
 
-    file_name = 'barplot_{}_vs_{}.png'.format('${meta.treatment}', '${meta.reference}')
+    file_name = 'barplot_{}.png'.format('${meta.id}')
 
     plt.savefig(file_name)
     plt.show()
