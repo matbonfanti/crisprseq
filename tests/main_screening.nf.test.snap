@@ -1,7 +1,7 @@
 {
     "Test screening": {
         "content": [
-            20,
+            21,
             {
                 "BAGEL2_BF": {
                     "python": "3.11.4",
@@ -68,6 +68,9 @@
                     "mageck": "0.5.9.5"
                 },
                 "VENNDIAGRAM": {
+                    "ggvenn": "0.1.10"
+                },
+                "VENNDIAGRAM_DRUGZ": {
                     "ggvenn": "0.1.10"
                 },
                 "Workflow": {
@@ -167,11 +170,11 @@
                 "mageck/mle/control_vs_treatment/control_vs_treatment.gene_summary.txt",
                 "mageck/mle/control_vs_treatment/control_vs_treatment.sgrna_summary.txt",
                 "mageck/rra",
-                "mageck/rra/control_treatment.R",
-                "mageck/rra/control_treatment.gene_summary.txt",
-                "mageck/rra/control_treatment.log",
-                "mageck/rra/control_treatment.sgrna_summary.txt",
-                "mageck/rra/control_treatment_summary.Rnw",
+                "mageck/rra/control_vs_treatment.R",
+                "mageck/rra/control_vs_treatment.gene_summary.txt",
+                "mageck/rra/control_vs_treatment.log",
+                "mageck/rra/control_vs_treatment.sgrna_summary.txt",
+                "mageck/rra/control_vs_treatment_summary.Rnw",
                 "multiqc",
                 "multiqc/multiqc_data",
                 "multiqc/multiqc_data/fastqc-status-check-heatmap.txt",
@@ -243,19 +246,21 @@
                 "venndiagram",
                 "venndiagram/control_vs_treatment",
                 "venndiagram/control_vs_treatment/control_vs_treatment.fdr_BAGEL2_common_genes_mle.txt",
-                "venndiagram/control_vs_treatment/venn_BAGEL2_mageckmle_control_vs_treatment.fdr.png"
+                "venndiagram/control_vs_treatment/control_vs_treatment.fdr_drugZ_common_genes_mle.txt",
+                "venndiagram/control_vs_treatment/venn_BAGEL2_mageckmle_control_vs_treatment.fdr.png",
+                "venndiagram/control_vs_treatment/venn_drugZ_mageckmle_control_vs_treatment.fdr.png"
             ],
             [
                 "control_vs_treatment.bf:md5,644b8deef4b2f70f61cda45583bef2be",
-                "control_vs_treatment.foldchange:md5,fcd5971d03db4e6f14a57ee0c683313c",
-                "control_vs_treatment.normed_readcount:md5,0140634f183117e27bce8ee2b025032b",
+                "control_vs_treatment.foldchange:md5,8360e6ca43e519db5b0c3d64a4a2fe5e",
+                "control_vs_treatment.normed_readcount:md5,4885994decfc81ff9da00a5ff82f6e8f",
                 "PR_plot_control_vs_treatment.png:md5,d009d3200c6e21c9be4f06cf062f862b",
                 "barplot_control_vs_treatment.png:md5,c888d1d4b097d62493a118ebb9a70974",
                 "control_vs_treatment.tsv:md5,770040a098d9ca0f5b4d3ea9829dadc7",
-                "crisprcleanr_correctedCounts.RData:md5,e593a3c361e2bfa12c704647c473864f",
-                "crisprcleanr_norm_table.tsv:md5,09555a6bce27cff61e803ceca5d751d3",
-                "control_vs_treatment.txt:md5,b0176dd28df9d555c023e0245f53f5c7",
-                "control_vs_treatment.foldchange:md5,4a6828f552898354f83ca4cd08b8ee08",
+                "crisprcleanr_correctedCounts.RData:md5,09d6ef6a113038adff7d0324626473b0",
+                "crisprcleanr_norm_table.tsv:md5,8de34e425e667ac065467b8b1528afb2",
+                "control_vs_treatment.txt:md5,504a5f23569354b6a7f3a09a9cd3d832",
+                "control_vs_treatment.foldchange:md5,1e3fb0e570655a62310fcec74c22f560",
                 "control_vs_treatment_drugz_output.txt:md5,3d90e1c5fe50a9bfd3d1844c0b836eb8",
                 "control_vs_treatment_bagel2_gene_conversion.txt:md5,de82e8483579f831d131b01c8d912870",
                 "control_vs_treatment_bagel2_hitselection.tsv:md5,ff0aa7c3e1306d170cb7f10d7380f2c6",
@@ -293,14 +298,14 @@
                 "control_vs_treatment_omitessential_data.txt:md5,b4647e851d2503de0df70318f76263b1",
                 "control_vs_treatment_processed_data.txt:md5,e51ebceef53f51330d06ad57fb5796fe",
                 "control_vs_treatment_scatterview.png:md5,1647706e407fb9e7a31abf7891db89e8",
-                "count_table.count.txt:md5,f5330c33337a8dda134550ab1050eb2b",
-                "count_table.count_normalized.txt:md5,7fd218709980842748313aabc419f2b3",
-                "count_table.countsummary.txt:md5,9111f421fbc9cb3b2edfd5c11f5cf6a2",
+                "count_table.count.txt:md5,b29e6d4761a5a0a1ce60e67f1fcd0379",
+                "count_table.count_normalized.txt:md5,bceb9e7f01abf8cabffb176fc8974053",
+                "count_table.countsummary.txt:md5,46ac90c7205030f5379168be6aabadac",
                 "control_vs_treatment.sgrna_summary.txt:md5,7eda8a28a2c59197fd153518cba9ecf9",
-                "control_treatment.R:md5,e49ea1b783c0d4abda0fb0ea496e889c",
-                "control_treatment.gene_summary.txt:md5,3cfbc6c97e838f5298d71eb6931d175a",
-                "control_treatment.sgrna_summary.txt:md5,5c528cc3fb3f0ee91dee95360c3f75a5",
-                "control_treatment_summary.Rnw:md5,675efab04b05276af4f0495e79e2909f",
+                "control_vs_treatment.R:md5,3b03cc7562640064b2af4efd5b0afad7",
+                "control_vs_treatment.gene_summary.txt:md5,3cfbc6c97e838f5298d71eb6931d175a",
+                "control_vs_treatment.sgrna_summary.txt:md5,5c528cc3fb3f0ee91dee95360c3f75a5",
+                "control_vs_treatment_summary.Rnw:md5,2ac03c39e0c24977df725b4f4a251d9e",
                 "fastqc-status-check-heatmap.txt:md5,50129a4cd9c87d79a3841ac119f5a187",
                 "fastqc_per_base_n_content_plot.txt:md5,272dfea4dafcd2a7b122c27af4ed1aa3",
                 "fastqc_per_base_sequence_quality_plot.txt:md5,2332a2b6386d9a877c742af251bd51f1",
@@ -311,14 +316,15 @@
                 "fastqc_sequence_duplication_levels_plot.txt:md5,c441452ae5c12f9d281c9d367fd7f6fe",
                 "multiqc_citations.txt:md5,4c806e63a283ec1b7e78cdae3a923d4f",
                 "multiqc_general_stats.txt:md5,70b343b1d228d9306030913daad9a6fe",
-                "multiqc_mageck_count.txt:md5,f57eb7523ba713732316707fabde9d81",
-                "control_vs_treatment.fdr_BAGEL2_common_genes_mle.txt:md5,401b30e3b8b5d629635a5c613cdb7919"
+                "multiqc_mageck_count.txt:md5,a2a8ed5f2e303dd34c3680dac978ac07",
+                "control_vs_treatment.fdr_BAGEL2_common_genes_mle.txt:md5,401b30e3b8b5d629635a5c613cdb7919",
+                "control_vs_treatment.fdr_drugZ_common_genes_mle.txt:md5,c8e9ad4c4280a0969652886be73bf074"
             ]
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.04.2"
+            "nextflow": "25.04.3"
         },
-        "timestamp": "2025-05-27T12:41:09.067649051"
+        "timestamp": "2025-06-13T16:13:29.032029631"
     }
 }
