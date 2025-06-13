@@ -3,7 +3,7 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "../main.nf"
     tag "pipeline"
-    profile "screening_paired"
+    profile "test_screening_paired"
 
     test("Test screening with paired-end") {
 

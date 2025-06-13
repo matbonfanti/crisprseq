@@ -3,7 +3,7 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "../main.nf"
     tag "pipeline"
-    profile "screening_count_table"
+    profile "test_screening_count_table"
 
     test("Test screening with an input count table") {
 

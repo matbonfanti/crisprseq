@@ -3,7 +3,7 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "../main.nf"
     tag "pipeline"
-    profile "targeted_umis"
+    profile "test_umis"
 
     test("Test targeted UMIs") {
 
