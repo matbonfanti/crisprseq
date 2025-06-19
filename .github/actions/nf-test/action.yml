@@ -108,7 +108,7 @@ runs:
       if: always()
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
-        name: nf-test-output-${{ inputs.profile }}-${{ env.NXF_VERSION }}-${{ inputs.shard }}
+        name: nf-test-output-${{ inputs.profile }}-${{ inputs.shard }}-${{ github.run_id }}
         path: ${{ github.workspace }}/${{ env.NFT_WORKDIR }}/tests/*/output
 
     - name: Clean up
