@@ -489,7 +489,7 @@ def calculate_drugz_score_unpaired(per_gene_matrix, min_observations):
         per_gene_results["fdr_supp"][::-1]
     )[::-1]
 
-    per_gene_results = per_gene_results.sort_values("normZ", ascending=True)
+    per_gene_results = per_gene_results.sort_values(by=["normZ", per_gene_results.index.name], ascending=[False, True])
 
     return per_gene_results
 
@@ -600,6 +600,13 @@ def drugZ_analysis(args):
             fold_change = fold_change.loc[:, ~fold_change.columns.duplicated()]
 
         if args.fc_outfile:
+            # Sort by the second column (descending) and then by the first column (ascending)
+            sort_cols = fold_change.columns[:2]
+            fold_change.sort_values(
+                by=[sort_cols[1], sort_cols[0]],
+                ascending=[False, True],
+                inplace=True
+            )
             with args.fc_outfile as fold_change_file:
                 fold_change.to_csv(fold_change_file, sep="\t", float_format="%4.3f")
 
