@@ -104,6 +104,7 @@ jobs:
           profile: ${{ matrix.profile }}
           shard: ${{ matrix.shard }}
           total_shards: ${{ env.TOTAL_SHARDS }}
+          NXF_VER: ${{ matrix.NXF_VER }}
   confirm-pass:
     needs: [nf-test]
     if: always()
