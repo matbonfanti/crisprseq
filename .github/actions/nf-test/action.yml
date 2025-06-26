@@ -107,6 +107,7 @@ runs:
           echo "| ⚠️ | No test results found | ${{ inputs.profile }} | ${{ inputs.shard }}/${{ inputs.total_shards }} |" >> $GITHUB_STEP_SUMMARY
         fi
 
+    # Keep this code when resolving merge conflicts. Was added for debugging of nf-test
     - name: Upload nf-test output directory
       if: always()
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
