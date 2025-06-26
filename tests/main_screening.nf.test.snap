@@ -255,12 +255,9 @@
                 "crisprcleanr_correctedCounts.RData:md5,e593a3c361e2bfa12c704647c473864f",
                 "crisprcleanr_norm_table.tsv:md5,09555a6bce27cff61e803ceca5d751d3",
                 "control_vs_treatment.txt:md5,b0176dd28df9d555c023e0245f53f5c7",
-                "control_vs_treatment.foldchange:md5,8107e625d471ff08e0e276ccc1c2d331",
-                "control_vs_treatment_drugz_output.txt:md5,3d90e1c5fe50a9bfd3d1844c0b836eb8",
                 "control_vs_treatment_bagel2_gene_conversion.txt:md5,7982d87860fcafebc7f93997245172f1",
                 "control_vs_treatment_bagel2_hitselection.tsv:md5,ff0aa7c3e1306d170cb7f10d7380f2c6",
                 "control_vs_treatment_bagel2_logpvalue_distribution.png:md5,00d80cfe398be652e69b6dd30e571b80",
-                "control_vs_treatment_drugz_gene_conversion.txt:md5,842d8bee822b2a185d156932e0844a01",
                 "control_vs_treatment_drugz_hitselection.tsv:md5,09e7d21524a84840ede93bb3519f08f8",
                 "control_vs_treatment_drugz_logpvalue_distribution.png:md5,f0dff994f46912df3a49e34369b443e2",
                 "control_vs_treatment_mle_hitselection.tsv:md5,45c447e8438496a38835e6e0d6a215f0",
@@ -319,6 +316,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.3"
         },
-        "timestamp": "2025-06-25T14:33:13.034638777"
+        "timestamp": "2025-06-26T10:32:59.253993834"
     }
 }
