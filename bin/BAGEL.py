@@ -1224,7 +1224,7 @@ def calculate_precision_recall(
     else:
         bf_column = "BF"
 
-    bf.sort_values(by=bf_column, ascending=False, inplace=True)
+    bf.sort_values(by=[bf_column, bf.index.name], ascending=[False, True], inplace=True)
 
     cumulative_tp = 0.0
     cumulative_fp = 0.0
