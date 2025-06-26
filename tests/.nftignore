@@ -23,3 +23,6 @@ cigar/*.html
 plots/*.html
 preprocessing/adapters/overrepresented.fasta
 preprocessing/cutadapt/*.log
+drugz/control_vs_treatment.foldchange
+drugz/control_vs_treatment_drugz_output.txt
+hitselection/drugz/control_vs_treatment_drugz_gene_conversion.txt

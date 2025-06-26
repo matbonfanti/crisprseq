@@ -3,16 +3,13 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "../main.nf"
     tag "pipeline"
+    profile "test_targeted"
 
     test("Test targeted") {
 
         when {
             params {
                 outdir          = "${outputDir}"
-                input           = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata-edition/samplesheet_test.csv"
-                analysis        = 'targeted'
-                aligner         = 'minimap2'
-                overrepresented = true
             }
         }
 

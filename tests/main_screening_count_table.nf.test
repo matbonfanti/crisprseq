@@ -3,16 +3,13 @@ nextflow_pipeline {
     name "Test Workflow main.nf"
     script "../main.nf"
     tag "pipeline"
+    profile "test_screening_count_table"
 
     test("Test screening with an input count table") {
 
         when {
             params {
                 outdir            = "${outputDir}"
-                analysis          = "screening"
-                count_table       = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/count_table.tsv"
-                mle_design_matrix = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/design_matrix.txt"
-                contrasts         = "https://raw.githubusercontent.com/nf-core/test-datasets/crisprseq/testdata/rra_contrasts.txt"
             }
         }
 
