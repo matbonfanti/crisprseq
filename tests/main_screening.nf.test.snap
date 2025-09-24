@@ -246,38 +246,24 @@
             ],
             [
                 "control_vs_treatment.bf:md5,644b8deef4b2f70f61cda45583bef2be",
-<<<<<<< 172-mageck-is-pulling-conditions-instead-of-unique-sample-names
                 "control_vs_treatment.foldchange:md5,8360e6ca43e519db5b0c3d64a4a2fe5e",
                 "control_vs_treatment.normed_readcount:md5,4885994decfc81ff9da00a5ff82f6e8f",
-                "PR_plot_control_vs_treatment.png:md5,d009d3200c6e21c9be4f06cf062f862b",
-                "barplot_control_vs_treatment.png:md5,c888d1d4b097d62493a118ebb9a70974",
-                "control_vs_treatment.tsv:md5,770040a098d9ca0f5b4d3ea9829dadc7",
-                "crisprcleanr_correctedCounts.RData:md5,09d6ef6a113038adff7d0324626473b0",
-                "crisprcleanr_norm_table.tsv:md5,8de34e425e667ac065467b8b1528afb2",
-                "control_vs_treatment.txt:md5,504a5f23569354b6a7f3a09a9cd3d832",
-                "control_vs_treatment.foldchange:md5,1e3fb0e570655a62310fcec74c22f560",
-                "control_vs_treatment_drugz_output.txt:md5,3d90e1c5fe50a9bfd3d1844c0b836eb8",
-                "control_vs_treatment_bagel2_gene_conversion.txt:md5,de82e8483579f831d131b01c8d912870",
-=======
-                "control_vs_treatment.foldchange:md5,fcd5971d03db4e6f14a57ee0c683313c",
-                "control_vs_treatment.normed_readcount:md5,0140634f183117e27bce8ee2b025032b",
                 "PR_plot_control_vs_treatment.png:md5,606f8bdd775a4c71a6ea8327a44670b5",
                 "barplot_control_vs_treatment.png:md5,c888d1d4b097d62493a118ebb9a70974",
                 "control_vs_treatment.tsv:md5,f716e50bb6333cb26a9b33698428f3a6",
-                "crisprcleanr_correctedCounts.RData:md5,e593a3c361e2bfa12c704647c473864f",
-                "crisprcleanr_norm_table.tsv:md5,09555a6bce27cff61e803ceca5d751d3",
-                "control_vs_treatment.txt:md5,b0176dd28df9d555c023e0245f53f5c7",
+                "crisprcleanr_correctedCounts.RData:md5,09d6ef6a113038adff7d0324626473b0",
+                "crisprcleanr_norm_table.tsv:md5,8de34e425e667ac065467b8b1528afb2",
+                "control_vs_treatment.txt:md5,504a5f23569354b6a7f3a09a9cd3d832",
                 "control_vs_treatment_bagel2_gene_conversion.txt:md5,7982d87860fcafebc7f93997245172f1",
->>>>>>> dev
-                "control_vs_treatment_bagel2_hitselection.tsv:md5,ff0aa7c3e1306d170cb7f10d7380f2c6",
-                "control_vs_treatment_bagel2_logpvalue_distribution.png:md5,00d80cfe398be652e69b6dd30e571b80",
-                "control_vs_treatment_drugz_hitselection.tsv:md5,09e7d21524a84840ede93bb3519f08f8",
-                "control_vs_treatment_drugz_logpvalue_distribution.png:md5,f0dff994f46912df3a49e34369b443e2",
-                "control_vs_treatment_mle_hitselection.tsv:md5,45c447e8438496a38835e6e0d6a215f0",
-                "control_vs_treatment_mle_logpvalue_distribution.png:md5,c513bc76b8df5342f77e51d41cae740f",
+                "control_vs_treatment_bagel2_hitselection.tsv:md5,ffd2d35738adb38794b390926086891c",
+                "control_vs_treatment_bagel2_logpvalue_distribution.png:md5,aa2d24c37fbf7a5fac7d8c2da0a322cf",
+                "control_vs_treatment_drugz_hitselection.tsv:md5,2dda7693e2531926b7849a6d0541bd32",
+                "control_vs_treatment_drugz_logpvalue_distribution.png:md5,a3f3db45fd11fa2066fe2e66843d8728",
+                "control_vs_treatment_mle_hitselection.tsv:md5,adca082175d4dd00abc7c27a26bc81ec",
+                "control_vs_treatment_mle_logpvalue_distribution.png:md5,a3f3db45fd11fa2066fe2e66843d8728",
                 "control_vs_treatment_rra_gene_conversion.txt:md5,3837fe1e640e840635744899c7fe640b",
-                "control_vs_treatment_rra_hitselection.tsv:md5,cc9a4fedc5cbecb2ecb65a58b8fe5d9c",
-                "control_vs_treatment_rra_logpvalue_distribution.png:md5,2328c2357be545543c5c281cf28feaf3",
+                "control_vs_treatment_rra_hitselection.tsv:md5,9b5cfb48a678c91aa51a9a8e31aec308",
+                "control_vs_treatment_rra_logpvalue_distribution.png:md5,a3f3db45fd11fa2066fe2e66843d8728",
                 "GroupA_complex_cell_cycle.png:md5,41b7f9c480fdb6d0c6ffbf224f41e565",
                 "GroupA_complex_cell_cycle.txt:md5,9bb7db5af9c776fe66aa3a18a61ef6c1",
                 "GroupA_gobp_cell_cycle.png:md5,e2f99635daa5297b27745c67a429c54e",
@@ -330,10 +316,6 @@
             "nf-test": "0.9.2",
             "nextflow": "25.04.3"
         },
-<<<<<<< 172-mageck-is-pulling-conditions-instead-of-unique-sample-names
-        "timestamp": "2025-06-13T16:13:29.032029631"
-=======
-        "timestamp": "2025-06-26T10:32:59.253993834"
->>>>>>> dev
+        "timestamp": "2025-09-24T10:49:50.055474031"
     }
 }
