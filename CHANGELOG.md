@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix a bug in the DrugZ module for the removed genes parameter ([#222]https://github.com/nf-core/crisprseq/pull/222)
 - Allow csv files in the validation of the `--library` parameter ([#229](https://github.com/nf-core/crisprseq/pull/229))
 - Fixed link to example contranst file in the usage documentation ([#236](https://github.com/nf-core/crisprseq/pull/236))
+- Sample names instead of conditions are used in the MAGeCK output ([#252](https://github.com/nf-core/crisprseq/pull/252))
 
 ### General
 
