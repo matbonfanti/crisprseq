@@ -122,7 +122,7 @@ For more details about the output files and reports, please refer to the
 nf-core/crisprseq targeted is based on [CRISPR-A](https://doi.org/10.1101/2022.09.02.506351) [[Sanvicente-García, et.al. (2023)](https://doi.org/10.1371/journal.pcbi.1011137)], originally written by Marta Sanvicente García at [Translational Synthetic Biology](https://synbio.upf.edu/) from [Universitat Pompeu Fabra](https://www.upf.edu/home).
 It was re-written in Nextflow DSL2 and is primarily maintained by Júlia Mir Pedrol ([@mirpedrol](https://github.com/mirpedrol)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/).
 
-nf-core/crisprseq screening was written and is primarly maintained by Laurence Kuhlburger ([@LaurenceKuhl](https://github.com/LaurenceKuhl)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/).
+nf-core/crisprseq screening was written by Laurence Kuhlburger ([@LaurenceKuhl](https://github.com/LaurenceKuhl)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/) and is currently primarly maintained by Matteo Bonfanti ([@matbonfanti](https://github.com/matbonfanti)) at the [National Facility for Data Handling & Analysis (nf-data)](https://humantechnopole.it/en/facilities/national-facility-for-data-handling-analysis/) from [Human Technopole, Milano](https://humantechnopole.it/en/).
 
 Main developers:
 
