@@ -234,13 +234,13 @@ workflow CRISPRSEQ_SCREENING {
     }
 
     if (params.contrasts) {
-    
+
         ch_samplesheet
             .map { meta, _fastq -> [meta.condition, meta] }
             .groupTuple(by: 0) // Group by condition
             .map { condition, metas -> [condition, metas.collect { it.id }]}
             .set { ch_samplesheet_conditions }
-        
+
         Channel
             .fromPath(params.contrasts)
             .splitCsv(header:true, sep:';')
@@ -356,7 +356,7 @@ workflow CRISPRSEQ_SCREENING {
 
             MATRICESCREATION(ch_contrasts_counts.map { it[0] })
             ch_mle = MATRICESCREATION.out.design_matrix.combine(ch_counts)
-            
+
             MAGECK_MLE (ch_mle, INITIALISATION_CHANNEL_CREATION_SCREENING.out.mle_control_sgrna)
             ch_versions = ch_versions.mix(MAGECK_MLE.out.versions)
 
