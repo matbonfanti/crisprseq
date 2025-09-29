@@ -99,7 +99,7 @@ workflow CRISPRSEQ_SCREENING {
             )
             CUTADAPT_FIVE_PRIME.out.reads.combine(Channel.value([[]])).set { ch_cutadapt }
             ch_cutadapt.map{ meta, fastq, proto  ->
-                meta.id = "${meta.id}_trim"
+                meta.id = "${meta.id}"
                 [meta, fastq, proto]
             }.set { ch_cutadapt }
 
@@ -261,7 +261,6 @@ workflow CRISPRSEQ_SCREENING {
             }
             .combine(ch_counts)
             .set{ ch_contrasts_counts }
-
     }
 
     if (params.rra) {
