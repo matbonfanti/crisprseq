@@ -500,4 +500,3 @@ def validateParametersScreening() {
         error "Please also provide the contrasts table to compare the samples for DrugZ"
     }
 }
-

@@ -151,13 +151,13 @@ process HITSELECTION {
 
     # Save the updated screen data with HGNC and Ensembl IDs to a file
     if(length(beta_col) >= 1) {
-        filename <- '${meta.prefix}_mle'
+        filename <- '${prefix}_mle'
     } else if(length(bf_col) >= 1) {
-        filename <- '${meta.prefix}_bagel2'
+        filename <- '${prefix}_bagel2'
     } else if(length(rra_col) >= 1) {  # New else if condition
-    filename <- '${meta.prefix}_rra'
+    filename <- '${prefix}_rra'
     } else {
-        filename <- '${meta.prefix}_drugz'
+        filename <- '${prefix}_drugz'
     }
 
     write_delim(as.data.frame(screen), paste0(filename, '_gene_conversion.txt'), delim = '\t')
@@ -247,8 +247,8 @@ process HITSELECTION {
     def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    touch "${meta.prefix}_hitselection.tsv"
-    touch "${meta.prefix}_output_converted.txt"
+    touch "${prefix}_hitselection.tsv"
+    touch "${prefix}_output_converted.txt"
 
     version_file_path <- "versions.yml"
     version_igraph <- paste(unlist(packageVersion("igraph")), collapse = ".")

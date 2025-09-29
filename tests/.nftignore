@@ -1,6 +1,7 @@
 .DS_Store
 multiqc/multiqc_plots/{svg,pdf,png}/*.{svg,pdf,png}
 multiqc/multiqc_report.html
+multiqc/multiqc_data/BETA-multiqc.parquet
 multiqc/multiqc_data/multiqc.log
 multiqc/multiqc_data/multiqc_data.json
 multiqc/multiqc_data/multiqc_sources.txt
@@ -23,3 +24,6 @@ cigar/*.html
 plots/*.html
 preprocessing/adapters/overrepresented.fasta
 preprocessing/cutadapt/*.log
+drugz/control_vs_treatment.foldchange
+drugz/control_vs_treatment_drugz_output.txt
+hitselection/drugz/control_vs_treatment_drugz_gene_conversion.txt
