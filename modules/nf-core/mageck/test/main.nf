@@ -1,5 +1,5 @@
 process MAGECK_TEST {
-    tag "${meta.id}"
+    tag "$meta.id"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"
@@ -29,8 +29,8 @@ process MAGECK_TEST {
     mageck  \\
         test \\
         $args \\
-        -k ${count_table} \\
-        -n ${prefix}
+        -k $count_table \\
+        -n $prefix
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
