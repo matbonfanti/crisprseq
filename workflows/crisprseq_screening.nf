@@ -253,7 +253,7 @@ workflow CRISPRSEQ_SCREENING {
             .set { ch_contrasts }
 
         ch_contrasts
-            .combine(ch_samplesheet_conditions.collect(flat: false).map{ [it] })
+            .combine(ch_samplesheet_conditions.collect(flat: false).map{ it -> [it] })
             .map { contrast_meta, all_conditions ->
                 def treatment_samples = all_conditions.find { it[0] in contrast_meta.treatment }  // Find samples for each condition
                 def reference_samples = all_conditions.find { it[0] in contrast_meta.reference }
