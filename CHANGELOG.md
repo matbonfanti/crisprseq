@@ -3,12 +3,19 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.4.0dev]
+## [v3.0.0dev]
 
 ### Added
 
 - Add an acknowlodgement to Hitselection method ([#222]https://github.com/nf-core/crisprseq/pull/222)
 - Added parameters specifying additional arguments for the cutadapt command line ([#237](https://github.com/nf-core/crisprseq/pull/237))
+- Template update to 3.2.1 ([#244](https://github.com/nf-core/crisprseq/pull/244))
+- Template update to 3.3.1 ([#249](https://github.com/nf-core/crisprseq/pull/249))
+- Template update to 3.3.2 ([#253](https://github.com/nf-core/crisprseq/pull/253))
+- Added nf-test ([#28](https://github.com/nf-core/crisprseq/pull/28))
+- Implementation of nf-gpt into crisprseq pipeline ([#193](https://github.com/nf-core/crisprseq/pull/193))
+- Added HiRSE badge ([#256](https://github.com/nf-core/crisprseq/pull/256))
+- Added logo with mascot ([#257](https://github.com/nf-core/crisprseq/pull/257))
 
 ### Fixed
 
@@ -16,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix a bug in the DrugZ module for the removed genes parameter ([#222]https://github.com/nf-core/crisprseq/pull/222)
 - Allow csv files in the validation of the `--library` parameter ([#229](https://github.com/nf-core/crisprseq/pull/229))
 - Fixed link to example contranst file in the usage documentation ([#236](https://github.com/nf-core/crisprseq/pull/236))
+- Fixed bug in Bowtie alignment for guide libraries ([#247](https://github.com/nf-core/crisprseq/pull/247))
 - Sample names instead of conditions are used in the MAGeCK output ([#252](https://github.com/nf-core/crisprseq/pull/252))
 
 ### General
