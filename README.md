@@ -5,18 +5,20 @@
   </picture>
 </h1>
 
-[![GitHub Actions CI Status](https://github.com/nf-core/crisprseq/actions/workflows/ci.yml/badge.svg)](https://github.com/nf-core/crisprseq/actions/workflows/ci.yml)
-[![GitHub Actions Linting Status](https://github.com/nf-core/crisprseq/actions/workflows/linting.yml/badge.svg)](https://github.com/nf-core/crisprseq/actions/workflows/linting.yml)[![AWS CI](https://img.shields.io/badge/CI%20tests-full%20size-FF9900?labelColor=000000&logo=Amazon%20AWS)](https://nf-co.re/crisprseq/results)[![Cite with Zenodo](http://img.shields.io/badge/DOI-10.5281/zenodo.7598496-1073c8?labelColor=000000)](https://doi.org/10.5281/zenodo.7598496)
+[![GitHub Actions CI Status](https://github.com/nf-core/crisprseq/actions/workflows/nf-test.yml/badge.svg)](https://github.com/nf-core/crisprseq/actions/workflows/nf-test.yml)
+[![GitHub Actions Linting Status](https://github.com/nf-core/crisprseq/actions/workflows/linting.yml/badge.svg)](https://github.com/nf-core/crisprseq/actions/workflows/linting.yml)[![AWS CI](https://img.shields.io/badge/CI%20tests-full%20size-FF9900?labelColor=000000&logo=Amazon%20AWS)](https://nf-co.re/crisprseq/results)[![Cite with Zenodo](http://img.shields.io/badge/DOI-10.5281/zenodo.XXXXXXX-1073c8?labelColor=000000)](https://doi.org/10.5281/zenodo.XXXXXXX)
 [![nf-test](https://img.shields.io/badge/unit_tests-nf--test-337ab7.svg)](https://www.nf-test.com)
 
-[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.04.2-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
-[![nf-core template version](https://img.shields.io/badge/nf--core_template-3.3.1-green?style=flat&logo=nfcore&logoColor=white&color=%2324B064&link=https%3A%2F%2Fnf-co.re)](https://github.com/nf-core/tools/releases/tag/3.3.1)
+[![Nextflow](https://img.shields.io/badge/version-%E2%89%A524.10.5-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
+[![nf-core template version](https://img.shields.io/badge/nf--core_template-3.3.2-green?style=flat&logo=nfcore&logoColor=white&color=%2324B064&link=https%3A%2F%2Fnf-co.re)](https://github.com/nf-core/tools/releases/tag/3.3.2)
 [![run with conda](http://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/en/latest/)
 [![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 [![Launch on Seqera Platform](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Seqera%20Platform-%234256e7)](https://cloud.seqera.io/launch?pipeline=https://github.com/nf-core/crisprseq)
 
 [![Get help on Slack](http://img.shields.io/badge/slack-nf--core%20%23crisprseq-4A154B?labelColor=000000&logo=slack)](https://nfcore.slack.com/channels/crisprseq)[![Follow on Bluesky](https://img.shields.io/badge/bluesky-%40nf__core-1185fe?labelColor=000000&logo=bluesky)](https://bsky.app/profile/nf-co.re)[![Follow on Mastodon](https://img.shields.io/badge/mastodon-nf__core-6364ff?labelColor=FFFFFF&logo=mastodon)](https://mstdn.science/@nf_core)[![Watch on YouTube](http://img.shields.io/badge/youtube-nf--core-FF0000?labelColor=000000&logo=youtube)](https://www.youtube.com/c/nf-core)
+
+![HiRSE Code Promo Badge](https://img.shields.io/badge/Promo-8db427?style=plastic&label=HiRSE&labelColor=005aa0&link=https%3A%2F%2Fgo.fzj.de%2FCodePromo)
 
 ## Introduction
 
@@ -122,7 +124,7 @@ For more details about the output files and reports, please refer to the
 nf-core/crisprseq targeted is based on [CRISPR-A](https://doi.org/10.1101/2022.09.02.506351) [[Sanvicente-García, et.al. (2023)](https://doi.org/10.1371/journal.pcbi.1011137)], originally written by Marta Sanvicente García at [Translational Synthetic Biology](https://synbio.upf.edu/) from [Universitat Pompeu Fabra](https://www.upf.edu/home).
 It was re-written in Nextflow DSL2 and is primarily maintained by Júlia Mir Pedrol ([@mirpedrol](https://github.com/mirpedrol)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/).
 
-nf-core/crisprseq screening was written and is primarly maintained by Laurence Kuhlburger ([@LaurenceKuhl](https://github.com/LaurenceKuhl)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/).
+nf-core/crisprseq screening was written by Laurence Kuhlburger ([@LaurenceKuhl](https://github.com/LaurenceKuhl)) at [Quantitative Biology Center (QBiC)](https://www.qbic.uni-tuebingen.de/) from [Universität Tübingen](https://uni-tuebingen.de/en/) and is currently primarly maintained by Matteo Bonfanti ([@matbonfanti](https://github.com/matbonfanti)) at the [National Facility for Data Handling & Analysis (nf-data)](https://humantechnopole.it/en/facilities/national-facility-for-data-handling-analysis/) from [Human Technopole, Milano](https://humantechnopole.it/en/).
 
 Main developers:
 

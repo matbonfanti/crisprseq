@@ -99,7 +99,7 @@ workflow CRISPRSEQ_SCREENING {
             )
             CUTADAPT_FIVE_PRIME.out.reads.combine(Channel.value([[]])).set { ch_cutadapt }
             ch_cutadapt.map{ meta, fastq, proto  ->
-                meta.id = "${meta.id}_trim"
+                meta.id = "${meta.id}"
                 [meta, fastq, proto]
             }.set { ch_cutadapt }
 
@@ -165,21 +165,21 @@ workflow CRISPRSEQ_SCREENING {
         ch_input
         .map { meta, fastqs  ->
             if(fastqs.size() == 1){
-                [meta.condition, [fastqs[0]], meta.single_end, []]
+                [meta.id, [fastqs[0]], meta.single_end, []]
             } else {
-                [meta.condition, [fastqs[0]], meta.single_end, [fastqs[1]]]
+                [meta.id, [fastqs[0]], meta.single_end, [fastqs[1]]]
             }
         }
         // if one element is paired-end and the other single-end throw an error
-        // otherwise just concatenate the conditions and the fastqs
+        // otherwise just concatenate the sample names and the fastqs
         .reduce { a, b ->
             if(a[2] != b[2] ) {
                 error "Your samplesheet contains a mix of single-end and paired-end data. This is not supported."
             }
             return ["${a[0]},${b[0]}", a[1] + b[1], b[2] ,a[3] + b[3]]
         }
-        .map { condition, fastqs_1, single_end, fastqs_2 ->
-            [[id: condition, single_end: single_end], fastqs_1, fastqs_2]
+        .map { id, fastqs_1, single_end, fastqs_2 ->
+            [[id: id, single_end: single_end], fastqs_1, fastqs_2]
         }
         .last()
         .set { joined }
@@ -233,16 +233,44 @@ workflow CRISPRSEQ_SCREENING {
         }.set { ch_counts }
     }
 
-    if(params.rra) {
-        Channel.fromPath(params.contrasts)
-            .splitCsv(header:true, sep:';' )
-            .set { ch_contrasts }
-        counts = ch_contrasts.combine(ch_counts)
+    if (params.contrasts) {
+
+        // Map each condition in the samplesheet to the list of sample ids belonging to that condition
+        ch_samplesheet
+            .map { meta, _fastq -> [meta.condition, meta] }
+            .groupTuple(by: 0) // Group by condition
+            .map { condition, metas -> [condition, metas.collect { it.id }]}
+            .set { ch_samplesheet_conditions } // tuples (condition, [sample_id1, sample_id2, ...])
+
+        // Map each contrast in the contrasts file to a the list of treatment / reference conditions to compare
+        Channel
+            .fromPath(params.contrasts)
+            .splitCsv(header:true, sep:';')
+            .map { line -> [
+                    id: "${line.treatment.replace(",", "_")}_vs_${line.reference.replace(",", "_")}",
+                    treatment: line.treatment.split(','),
+                    reference: line.reference.split(',')
+                ]
+            }
+            .set { ch_contrasts } // maps [id: "...", treatment: [cond1, ...], reference: [cond2, ...]]
+
+        // Map each contrast to the corresponding sample ids for treatment and reference, and then combine with the count table
+        ch_contrasts
+            .combine(ch_samplesheet_conditions.collect(flat: false).map{ it -> [it] }) // combine each contrast element with a single-element list containing all (condition, [sample_ids]) tuples
+            .map { contrast_meta, all_conditions ->
+                def treatment_samples = all_conditions.find { it[0] in contrast_meta.treatment }  // Find samples for each condition
+                def reference_samples = all_conditions.find { it[0] in contrast_meta.reference }
+                return [ id: contrast_meta.id,  treatment: treatment_samples[1].join(","), reference: reference_samples[1].join(",") ]
+            } // emits maps: [id: "...", treatment: "sample1,sample2", reference: "sample3,sample4"]
+            .combine(ch_counts)
+            .set{ ch_contrasts_counts } // tuples (contrast_map, counts) with each contrast combined with the count table
+    }
+
+    if (params.rra) {
 
         MAGECK_TEST (
-            counts
+            ch_contrasts_counts
         )
-
         ch_versions = ch_versions.mix(MAGECK_TEST.out.versions)
 
         MAGECK_GRAPHRRA (
@@ -259,23 +287,18 @@ workflow CRISPRSEQ_SCREENING {
             )
             ch_versions = ch_versions.mix(HITSELECTION_RRA.out.versions)
         }
+
     }
 
-    if(params.contrasts) {
-        Channel.fromPath(params.contrasts)
-            .splitCsv(header:true, sep:';' )
-            .set { ch_contrasts }
-    counts = ch_contrasts.combine(ch_counts)
-
-
     if(params.bagel2) {
-    //Define non essential and essential genes channels for bagel2
+
+        //Define non essential and essential genes channels for bagel2
         ch_bagel_reference_essentials    = Channel.fromPath(params.bagel_reference_essentials).first()
         ch_bagel_reference_nonessentials = Channel.fromPath(params.bagel_reference_nonessentials).first()
 
         BAGEL2_FC (
-                counts
-            )
+            ch_contrasts_counts
+        )
         ch_versions = ch_versions.mix(BAGEL2_FC.out.versions)
 
         BAGEL2_BF (
@@ -283,12 +306,10 @@ workflow CRISPRSEQ_SCREENING {
             ch_bagel_reference_essentials,
             ch_bagel_reference_nonessentials
         )
-
         ch_versions = ch_versions.mix(BAGEL2_BF.out.versions)
 
-
         ch_bagel_pr = BAGEL2_BF.out.bf.combine(ch_bagel_reference_essentials)
-                                        .combine(ch_bagel_reference_nonessentials)
+                                      .combine(ch_bagel_reference_nonessentials)
 
         BAGEL2_PR (
             ch_bagel_pr
@@ -298,11 +319,10 @@ workflow CRISPRSEQ_SCREENING {
         BAGEL2_GRAPH (
             BAGEL2_PR.out.pr
         )
-
         ch_versions = ch_versions.mix(BAGEL2_GRAPH.out.versions)
+
         // Run hit selection on BAGEL2
         if(params.hitselection) {
-
             HITSELECTION_BAGEL2 (
                 BAGEL2_PR.out.pr,
                 INITIALISATION_CHANNEL_CREATION_SCREENING.out.biogrid,
@@ -312,63 +332,70 @@ workflow CRISPRSEQ_SCREENING {
             ch_versions = ch_versions.mix(HITSELECTION_BAGEL2.out.versions)
         }
 
-        }
-
     }
 
     // Run MLE
     if((params.mle_design_matrix) || (params.contrasts && params.mle) || (params.day0_label)) {
+
         //if the user only wants to run mle through their own design matrices
         if(params.mle_design_matrix) {
-            INITIALISATION_CHANNEL_CREATION_SCREENING.out.design.map {
-                it -> [[id: it.getBaseName()], it]
-                }.set { ch_designed_mle }
 
-            ch_mle = ch_designed_mle.combine(ch_counts)
+            INITIALISATION_CHANNEL_CREATION_SCREENING.out.design
+                .map { it -> [[id: it.getBaseName()], it] }
+                .combine(ch_counts)
+                .set { ch_mle }
+
             MAGECK_MLE_MATRIX (ch_mle, INITIALISATION_CHANNEL_CREATION_SCREENING.out.mle_control_sgrna)
             ch_versions = ch_versions.mix(MAGECK_MLE_MATRIX.out.versions)
+
             MAGECK_FLUTEMLE(MAGECK_MLE_MATRIX.out.gene_summary)
             ch_versions = ch_versions.mix(MAGECK_FLUTEMLE.out.versions)
+
         }
 
         //if the user specified a contrast file
         if(params.contrasts && params.mle) {
-            MATRICESCREATION(ch_contrasts)
+
+            MATRICESCREATION(ch_contrasts_counts.map { it[0] })
             ch_mle = MATRICESCREATION.out.design_matrix.combine(ch_counts)
+
             MAGECK_MLE (ch_mle, INITIALISATION_CHANNEL_CREATION_SCREENING.out.mle_control_sgrna)
             ch_versions = ch_versions.mix(MAGECK_MLE.out.versions)
 
             if(params.hitselection) {
-                HITSELECTION_MLE(MAGECK_MLE.out.gene_summary,
-                INITIALISATION_CHANNEL_CREATION_SCREENING.out.biogrid,
-                INITIALISATION_CHANNEL_CREATION_SCREENING.out.hgnc,
-                params.hit_selection_iteration_nb)
-
+                HITSELECTION_MLE (
+                    MAGECK_MLE.out.gene_summary,
+                    INITIALISATION_CHANNEL_CREATION_SCREENING.out.biogrid,
+                    INITIALISATION_CHANNEL_CREATION_SCREENING.out.hgnc,
+                    params.hit_selection_iteration_nb
+                )
                 ch_versions = ch_versions.mix(HITSELECTION_MLE.out.versions)
             }
 
-            MAGECK_FLUTEMLE_CONTRASTS(MAGECK_MLE.out.gene_summary)
+            MAGECK_FLUTEMLE_CONTRASTS (MAGECK_MLE.out.gene_summary)
             ch_versions = ch_versions.mix(MAGECK_FLUTEMLE_CONTRASTS.out.versions)
+
         }
+
         if(params.day0_label) {
+
             ch_mle = Channel.of([id: "day0"]).merge(Channel.of([[]])).merge(ch_counts)
+
             MAGECK_MLE_DAY0 (ch_mle, INITIALISATION_CHANNEL_CREATION_SCREENING.out.mle_control_sgrna)
             ch_versions = ch_versions.mix(MAGECK_MLE_DAY0.out.versions)
+
             MAGECK_FLUTEMLE_DAY0(MAGECK_MLE_DAY0.out.gene_summary)
             ch_versions = ch_versions.mix(MAGECK_FLUTEMLE_DAY0.out.versions)
+
         }
     }
 
     // Launch module drugZ
     if(params.drugz) {
-        Channel.fromPath(params.contrasts)
-                .splitCsv(header:true, sep:';' )
-                .set { ch_drugz }
 
-        counts = ch_drugz.combine(ch_counts)
         DRUGZ (
-            counts
-            )
+            ch_contrasts_counts
+        )
         ch_versions = ch_versions.mix(DRUGZ.out.versions)
 
         if(params.hitselection) {
@@ -376,10 +403,8 @@ workflow CRISPRSEQ_SCREENING {
                 INITIALISATION_CHANNEL_CREATION_SCREENING.out.biogrid,
                 INITIALISATION_CHANNEL_CREATION_SCREENING.out.hgnc,
                 params.hit_selection_iteration_nb)
-
             ch_versions = ch_versions.mix(HITSELECTION.out.versions)
         }
-
     }
 
     //
@@ -387,7 +412,7 @@ workflow CRISPRSEQ_SCREENING {
     //
     if (params.gpt_interpretation && params.gpt_interpretation.split(',').contains('drugz')) {
         if (params.drugz) {
-            def gpt_drugz_data = DRUGZ.out.per_gene_results.map { meta, genes -> genes }
+            def gpt_drugz_data = DRUGZ.out.per_gene_results.map { _meta, genes -> genes }
             def gpt_drugZ_source = "drugZ"
             def gpt_drugZ_target_column = 5
             def gpt_drugZ_mode = "low"
@@ -414,7 +439,7 @@ workflow CRISPRSEQ_SCREENING {
     }
     if (params.gpt_interpretation && params.gpt_interpretation.split(',').contains('mle')) {
         if (params.mle) {
-            def gpt_mle_data = MAGECK_MLE.out.gene_summary.map { meta, genes -> genes }
+            def gpt_mle_data = MAGECK_MLE.out.gene_summary.map { _meta, genes -> genes }
             def gpt_mle_source = "mle"
             def gpt_mle_target_column = 2
             def gpt_mle_mode = "high"
@@ -441,7 +466,7 @@ workflow CRISPRSEQ_SCREENING {
     }
     if (params.gpt_interpretation && params.gpt_interpretation.split(',').contains('bagel2')) {
         if (params.bagel2) {
-            def gpt_bagel2_data = BAGEL2_BF.out.bf.map { meta, genes -> genes }
+            def gpt_bagel2_data = BAGEL2_BF.out.bf.map { _meta, genes -> genes }
             def gpt_bagel2_source = "bagel2"
             def gpt_bagel2_target_column = 1
             def gpt_bagel2_mode = "high"
@@ -468,7 +493,7 @@ workflow CRISPRSEQ_SCREENING {
     }
     if (params.gpt_interpretation && params.gpt_interpretation.split(',').contains('rra')) {
         if (params.rra) {
-            def gpt_rra_data = MAGECK_TEST.out.gene_summary.map { meta, genes -> genes }
+            def gpt_rra_data = MAGECK_TEST.out.gene_summary.map { _meta, genes -> genes }
             def gpt_rra_source = "rra"
             def gpt_rra_target_column = 5
             def gpt_rra_mode = "low"

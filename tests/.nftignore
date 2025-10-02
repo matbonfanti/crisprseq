@@ -1,6 +1,7 @@
 .DS_Store
 multiqc/multiqc_plots/{svg,pdf,png}/*.{svg,pdf,png}
 multiqc/multiqc_report.html
+multiqc/multiqc_data/BETA-multiqc.parquet
 multiqc/multiqc_data/multiqc.log
 multiqc/multiqc_data/multiqc_data.json
 multiqc/multiqc_data/multiqc_sources.txt
@@ -19,6 +20,7 @@ mageck/count/*.log
 mageck/mle/*/*.gene_summary.txt
 mageck/rra/*.log
 venndiagram/*/*.png
+venndiagram/*/*_common_genes_mle.txt
 cigar/*.html
 plots/*.html
 preprocessing/adapters/overrepresented.fasta
