@@ -235,12 +235,14 @@ workflow CRISPRSEQ_SCREENING {
 
     if (params.contrasts) {
 
+        // Map each condition in the samplesheet to the list of sample ids belonging to that condition
         ch_samplesheet
             .map { meta, _fastq -> [meta.condition, meta] }
             .groupTuple(by: 0) // Group by condition
             .map { condition, metas -> [condition, metas.collect { it.id }]}
-            .set { ch_samplesheet_conditions }
+            .set { ch_samplesheet_conditions } // tuples (condition, [sample_id1, sample_id2, ...])
 
+        // Map each contrast in the contrasts file to a the list of treatment / reference conditions to compare
         Channel
             .fromPath(params.contrasts)
             .splitCsv(header:true, sep:';')
@@ -250,17 +252,18 @@ workflow CRISPRSEQ_SCREENING {
                     reference: line.reference.split(',')
                 ]
             }
-            .set { ch_contrasts }
+            .set { ch_contrasts } // maps [id: "...", treatment: [cond1, ...], reference: [cond2, ...]]
 
+        // Map each contrast to the corresponding sample ids for treatment and reference, and then combine with the count table
         ch_contrasts
-            .combine(ch_samplesheet_conditions.collect(flat: false).map{ it -> [it] })
+            .combine(ch_samplesheet_conditions.collect(flat: false).map{ it -> [it] }) // combine each contrast element with a single-element list containing all (condition, [sample_ids]) tuples
             .map { contrast_meta, all_conditions ->
                 def treatment_samples = all_conditions.find { it[0] in contrast_meta.treatment }  // Find samples for each condition
                 def reference_samples = all_conditions.find { it[0] in contrast_meta.reference }
                 return [ id: contrast_meta.id,  treatment: treatment_samples[1].join(","), reference: reference_samples[1].join(",") ]
-            }
+            } // emits maps: [id: "...", treatment: "sample1,sample2", reference: "sample3,sample4"]
             .combine(ch_counts)
-            .set{ ch_contrasts_counts }
+            .set{ ch_contrasts_counts } // tuples (contrast_map, counts) with each contrast combined with the count table
     }
 
     if (params.rra) {
