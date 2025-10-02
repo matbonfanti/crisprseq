@@ -1,5 +1,5 @@
 process BAGEL2_BF {
-    tag "${meta.treatment}_${meta.reference}"
+    tag "${meta.id}"
     label 'process_single'
 
 
@@ -23,10 +23,10 @@ process BAGEL2_BF {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.treatment}_vs_${meta.reference}"
+    def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    BAGEL.py bf -i $foldchange -o '${meta.treatment}_vs_${meta.reference}.bf' $args -e $reference_essentials -n $reference_nonessentials -c ${meta.treatment}
+    BAGEL.py bf -i $foldchange -o '${meta.id}.bf' $args -e $reference_essentials -n $reference_nonessentials -c ${meta.treatment}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

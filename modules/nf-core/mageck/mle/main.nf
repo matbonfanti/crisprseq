@@ -21,8 +21,7 @@ process MAGECK_MLE {
 
     script:
     def args = task.ext.args ?: ''
-    def args2 = task.ext.args2 ?: ''
-    prefix = meta.id ?: "${meta.treatment}_vs_${meta.reference}"
+    def prefix = task.ext.prefix ?: "${meta.id}"
     def design_command = design_matrix ? "-d $design_matrix" : ''
     def control_sgrna = mle_control_sgrna ? "--control-sgrna $mle_control_sgrna" : ''
 

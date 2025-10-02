@@ -491,4 +491,12 @@ def validateParametersScreening() {
     if(params.rra && !params.contrasts) {
         error "Please also provide the contrasts table to compare the samples for MAGeCK RRA"
     }
+
+    if(params.bagel2 && !params.contrasts) {
+        error "Please also provide the contrasts table to compare the samples for BAGEL2"
+    }
+
+    if(params.drugz && !params.contrasts) {
+        error "Please also provide the contrasts table to compare the samples for DrugZ"
+    }
 }

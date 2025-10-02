@@ -1,5 +1,5 @@
 process BAGEL2_PR {
-    tag "${meta.treatment}_vs_${meta.reference}"
+    tag "${meta.id}"
     label 'process_single'
 
     conda "python=3.11.4 pandas=2.0.3 numpy=1.25.1 scikit-learn=1.3.0 click=8.1.6"
@@ -20,10 +20,10 @@ process BAGEL2_PR {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.treatment}_vs_${meta.reference}"
+    def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    BAGEL.py pr -i $bf  -o '${meta.treatment}_vs_${meta.reference}.tsv' -e $reference_essentials -n $reference_nonessentials $args
+    BAGEL.py pr -i $bf  -o '${meta.id}.tsv' -e $reference_essentials -n $reference_nonessentials $args
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

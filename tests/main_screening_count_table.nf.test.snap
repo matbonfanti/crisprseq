@@ -133,9 +133,9 @@
                 "mageck/FluteMLE/MAGeCKFlute_treatment/Selection/SquareView_cell_cycle.png",
                 "mageck/FluteMLE/MAGeCKFlute_treatment/Selection/treatmentsquareview_data.txt",
                 "mageck/mle",
-                "mageck/mle/null_vs_null",
-                "mageck/mle/null_vs_null/design_matrix.gene_summary.txt",
-                "mageck/mle/null_vs_null/design_matrix.sgrna_summary.txt",
+                "mageck/mle/design_matrix",
+                "mageck/mle/design_matrix/design_matrix.gene_summary.txt",
+                "mageck/mle/design_matrix/design_matrix.sgrna_summary.txt",
                 "multiqc",
                 "multiqc/multiqc_data",
                 "multiqc/multiqc_data/BETA-multiqc.parquet",
@@ -219,8 +219,8 @@
         ],
         "meta": {
             "nf-test": "0.9.2",
-            "nextflow": "24.04.2"
+            "nextflow": "25.04.3"
         },
-        "timestamp": "2025-05-27T12:48:01.261746256"
+        "timestamp": "2025-06-13T15:13:10.079028066"
     }
 }
